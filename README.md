@@ -34,22 +34,26 @@ TruthLens is an iOS application that detects deepfakes and AI-generated images w
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd Deepguard
 ```
 
 2. Navigate to the Next.js project:
+
 ```bash
 cd truthlens-landing
 ```
 
 3. Install dependencies:
+
 ```bash
 npm install
 ```
 
 4. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -82,9 +86,25 @@ truthlens-landing/
 ### Typography
 
 Using Apple's San Francisco font family via the -apple-system font stack, which provides:
+
 - SF Pro Text for body text
 - SF Pro Display for headlines
 - Optimal rendering on Apple devices
+
+### Using Satoshi (optional)
+
+This project can use the commercial "Satoshi" typeface as the primary site font. Satoshi is a licensed font — do not redistribute the font files unless you hold the appropriate license.
+
+How to enable Satoshi locally:
+
+1. Purchase or obtain Satoshi from your licensed provider.
+2. Place the font files (recommended formats: `woff2`) in the project `public/fonts/` folder. Example filenames:
+   - `public/fonts/Satoshi-Variable.woff2`
+   - `public/fonts/Satoshi-Regular.woff2`
+3. The project already includes a `@font-face` and global CSS update in `app/globals.css` referencing `/fonts/Satoshi-Variable.woff2`. If you use different filenames, update that path accordingly.
+4. Restart the development server and verify the site loads Satoshi. If you need to remove the font or don't have a license, the site will fall back to the system font stack automatically.
+
+License note: Keep licensed font files out of public VCS if your license forbids redistribution. Instead, host them on a private CDN or provide installation instructions for dev team members.
 
 ### Components
 

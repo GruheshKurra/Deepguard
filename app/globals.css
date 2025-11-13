@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Satoshi font loaded via CDN in layout.tsx */
+
+
 :root {
   /* Apple Dark Mode Colors */
   --background: #000000;
@@ -35,13 +38,16 @@
   --color-error: var(--error);
 
   /* Apple San Francisco Font */
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* Prefer Satoshi when available, fall back to system stack */
+  --font-sans: 'Satoshi', -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--text-primary);
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Smooth scrolling */
