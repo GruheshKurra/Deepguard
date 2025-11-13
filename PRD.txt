@@ -1,0 +1,2002 @@
+📋 PRODUCT REQUIREMENTS DOCUMENT (PRD)
+TruthLens: AI-Powered Deepfake & AI-Generated Image Detection
+
+DOCUMENT CONTROL
+Version	1.0
+Date	November 2025
+Status	Final - Ready for Development
+Owner	Solo Developer
+Target Launch	2 Months from Start
+
+1. EXECUTIVE SUMMARY
+1.1 Product Vision
+Build the world's first privacy-first, on-device dual-model system for detecting both deepfake manipulations and AI-generated images on iOS devices, backed by publishable research and deployable under strict 50MB constraints.
+1.2 Core Value Proposition
+	• 100% Private: All processing happens on-device with zero data transmission
+	• Dual Detection: Two specialized models covering all manipulation types
+	• Research-Grade: Novel architectures suitable for CVPR/ICCV publication
+	• Production-Ready: Real-world robustness against compression, filters, and degradation
+	• User-Empowering: Adjustable sensitivity, educational content, detailed explanations
+1.3 Success Criteria
+	• Technical: >95% accuracy on benchmarks, <200ms inference, <50MB total size
+	• Product: 10,000+ downloads, >4.5 App Store rating in Month 1
+	• Research: Paper acceptance at top-tier conference (CVPR/ICCV/NeurIPS)
+
+2. PRODUCT OVERVIEW
+2.1 Target Users
+Primary Personas
+Persona 1: Privacy-Conscious Consumer
+	• Age: 25-45
+	• Concerned about fake content on social media
+	• Values privacy and on-device processing
+	• Use cases: Verify dating app photos, news images, social media content
+Persona 2: Content Moderator/Journalist
+	• Age: 28-50
+	• Professional need for fact-checking
+	• Requires detailed forensic analysis
+	• Use cases: News verification, content moderation, investigative journalism
+Persona 3: Tech Enthusiast/Researcher
+	• Age: 22-40
+	• Interested in AI detection technology
+	• Appreciates technical details
+	• Use cases: Research, education, technology exploration
+2.2 Product Scope
+In Scope (MVP - Version 1.0)
+✅ Camera capture for instant analysis
+✅ Gallery upload (single & batch)
+✅ URL/Screenshot paste analysis
+✅ Two independent models (Deepfake & AI-Generated)
+✅ Adjustable sensitivity thresholds
+✅ Detailed result presentation with heatmaps
+✅ Side-by-side comparison view
+✅ History storage (local only)
+✅ iCloud sync for settings & history metadata
+✅ Export functionality (reports, images)
+✅ Educational onboarding
+✅ Over-the-air model updates
+✅ Dark mode support
+✅ Complete offline functionality
+Out of Scope (Post-MVP)
+❌ Video deepfake detection
+❌ Real-time camera scanning
+❌ Audio deepfake detection
+❌ Social media platform integration
+❌ Community verification features
+❌ Android version
+❌ Web version
+❌ Cloud processing options
+
+3. FUNCTIONAL REQUIREMENTS
+3.1 Core Features
+3.1.1 Image Input Methods
+FR-001: Camera Capture
+	• User can take photo with device camera
+	• Real-time preview before capture
+	• Standard camera controls (flash, flip, zoom)
+	• Instant analysis after capture
+	• Acceptance Criteria: Photo captured and analyzed within 3 seconds
+FR-002: Gallery Upload
+	• Select single or multiple images from photo library
+	• Support for standard formats: JPEG, PNG, HEIC
+	• Maximum 500 images per batch
+	• Progress indicator for batch operations
+	• Acceptance Criteria: Successfully load images up to 500 per batch
+FR-003: URL/Screenshot Analysis
+	• Paste image URL for analysis
+	• Paste from clipboard (screenshots)
+	• Auto-detect image format
+	• Download and process remote images
+	• Acceptance Criteria: Process images from URLs within 5 seconds
+FR-004: Import from iCloud
+	• Access iCloud Drive for image selection
+	• Support for folders and nested directories
+	• Resume interrupted imports
+	• Acceptance Criteria: Import from iCloud without data loss
+3.1.2 Detection Models
+FR-005: Model Selection
+	• Two independent models available:
+		○ Model A: Deepfake Detection
+		○ Model B: AI-Generated Detection
+	• User selects which model to use per analysis
+	• Clear description of what each model detects
+	• Acceptance Criteria: User can switch between models seamlessly
+FR-006: Deepfake Detection Capabilities
+	• Detect face swaps (DeepFakes, FaceSwap)
+	• Detect face reenactment (Face2Face)
+	• Detect lip-sync manipulation
+	• Detect age progression/regression
+	• Detect beauty filters (FaceApp, Snapchat)
+	• Detect facial retouching
+	• Handle edge cases: makeup, low quality, B&W, filters, partial faces
+	• Acceptance Criteria: >95% accuracy on FaceForensics++ test set
+FR-007: AI-Generated Detection Capabilities
+	• Detect images from Stable Diffusion (all versions)
+	• Detect images from DALL-E 3
+	• Detect images from Midjourney (v4-v6)
+	• Detect images from Sora
+	• Detect images from Grok
+	• Detect images from StyleGAN variants
+	• Detect mixed real-AI content
+	• Handle photorealistic and artistic styles
+	• Acceptance Criteria: >92% accuracy on multi-generator test set, >85% on unseen generators
+3.1.3 Analysis & Results
+FR-008: Adjustable Sensitivity
+	• User-controlled threshold slider (40%-90%)
+	• Three preset options:
+		○ Conservative (80%): Fewer false alarms
+		○ Balanced (70%): Default
+		○ Aggressive (40%): Catch more fakes
+	• Real-time explanation of threshold impact
+	• Different recommendations for different contexts
+	• Acceptance Criteria: Threshold adjustments immediately affect verdict
+FR-009: Result Presentation - Level 1 (Quick Verdict)
+	• Binary verdict: "LIKELY FAKE" or "LIKELY REAL"
+	• Confidence percentage (0-100%)
+	• Visual indicator (red for fake, green for real)
+	• Confidence meter visualization
+	• Tap to expand for details
+	• Acceptance Criteria: Results displayed within 200ms of analysis completion
+FR-010: Result Presentation - Level 2 (Detailed Analysis)
+	• Side-by-side comparison (original + heatmap)
+	• Artifact highlighting overlay
+	• Human-readable explanation:
+		○ Why the model flagged it
+		○ Specific artifacts detected
+		○ Confidence breakdown by region
+	• Acceptance Criteria: All detail views accessible with one tap
+FR-011: Result Presentation - Level 3 (Technical Forensics)
+	• Confidence breakdown by image region
+	• Frequency spectrum visualization
+	• Model attention heatmaps
+	• Metadata analysis (if enabled)
+	• Technical terminology for advanced users
+	• Acceptance Criteria: Technical data accurate and comprehensive
+FR-012: Heatmap Generation
+	• Visual overlay showing suspicious regions
+	• Color-coded intensity (red = most suspicious)
+	• Toggle on/off original vs heatmap
+	• Save heatmap separately
+	• Acceptance Criteria: Heatmap generated for all analyses
+FR-013: Explanation Generation
+	• Context-aware explanations based on:
+		○ Confidence level
+		○ Detection type
+		○ Specific artifacts found
+	• Written in clear, non-technical language
+	• Actionable insights where applicable
+	• Acceptance Criteria: Explanations match technical findings
+3.1.4 Batch Processing
+FR-014: Batch Analysis
+	• Select 1-500 images at once
+	• Progress indicator showing:
+		○ Current image number
+		○ Percentage complete
+		○ Estimated time remaining
+	• Pause/resume capability
+	• Thermal throttling awareness (slow down if device hot)
+	• Acceptance Criteria: Successfully process 500 images without crashes
+FR-015: Batch Results
+	• Sortable results:
+		○ Most suspicious first
+		○ By confidence level
+		○ By timestamp
+		○ By filename
+	• Filter results:
+		○ Show only fake
+		○ Show only real
+		○ Show uncertain
+	• Export batch report (CSV/PDF)
+	• Acceptance Criteria: Sort and filter operations complete instantly
+3.1.5 History & Storage
+FR-016: Analysis History
+	• Store analysis metadata locally:
+		○ Timestamp
+		○ Verdict (fake/real)
+		○ Confidence level
+		○ Detection type used
+		○ Explanation
+	• Optional: Save analyzed images
+	• Search history by date, verdict, confidence
+	• Delete individual or bulk entries
+	• Acceptance Criteria: History accessible even offline, search works instantly
+FR-017: iCloud Sync
+	• Sync settings across devices
+	• Sync analysis history metadata (not images)
+	• Conflict resolution (latest wins)
+	• Manual sync trigger
+	• Sync status indicator
+	• Acceptance Criteria: Settings/history sync within 5 seconds when online
+FR-018: Export Functionality
+	• Export individual results:
+		○ Share sheet integration
+		○ Save to Photos
+		○ Save to Files app
+		○ Copy to clipboard
+	• Export batch reports:
+		○ CSV format (filename, verdict, confidence)
+		○ PDF format (visual report with summaries)
+		○ Zip archive (images + metadata)
+	• Export options:
+		○ Include/exclude original images
+		○ Include/exclude heatmaps
+		○ Include/exclude explanations
+	• Acceptance Criteria: All export formats work correctly
+3.1.6 Model Updates
+FR-019: Over-The-Air Model Updates
+	• Check for updates on app launch (user setting)
+	• Manual check via Settings
+	• Display available updates:
+		○ Model name (Model A or B)
+		○ Version number
+		○ Size (MB)
+		○ Release notes
+		○ What's improved
+	• Download with progress indicator
+	• Install seamlessly without app restart
+	• Verify integrity (SHA-256 checksum)
+	• Fallback to bundled model if download fails
+	• Acceptance Criteria: Models update without affecting user experience
+FR-020: Model Version Management
+	• Display current versions in Settings
+	• Option to revert to previous version
+	• Automatic cleanup of old versions
+	• Total storage usage display
+	• Acceptance Criteria: Users always know which version is active
+3.1.7 Settings & Preferences
+FR-021: User Settings
+	• Analysis Preferences:
+		○ Default detection type (Deepfake/AI-Generated)
+		○ Default sensitivity level
+		○ Auto-analyze on capture (yes/no)
+		○ Save images to history (yes/no)
+	• Model Updates:
+		○ Auto-check for updates (yes/no)
+		○ Download over cellular (yes/no)
+		○ Update notifications
+	• Privacy:
+		○ Enable metadata analysis (yes/no)
+		○ iCloud sync (yes/no)
+	• Appearance:
+		○ Light/Dark/Auto theme
+		○ Result detail level (Quick/Detailed/Technical)
+	• Advanced:
+		○ Developer mode (show inference time, memory usage)
+		○ Export debug logs
+	• Acceptance Criteria: All settings persist across app sessions
+3.1.8 Educational Content
+FR-022: Onboarding Screens
+	• 4-screen educational flow on first launch:
+		1. Welcome & value proposition
+		2. What are deepfakes? (with examples)
+		3. What are AI-generated images? (with examples)
+		4. How it works (privacy, on-device)
+	• Skip option
+	• Accessible later from Settings → Learn
+	• Acceptance Criteria: Users complete onboarding in <60 seconds
+FR-023: Help & Information
+	• In-app guide accessible from menu
+	• Sections:
+		○ How to use each feature
+		○ Understanding results
+		○ Sensitivity threshold guide
+		○ FAQs
+		○ Limitations of detection
+		○ Privacy policy
+		○ Contact/feedback
+	• Acceptance Criteria: All help content clear and actionable
+
+3.2 Non-Functional Requirements
+3.2.1 Performance
+NFR-001: Inference Speed
+	• Single image analysis: <200ms (iPhone 12 or newer)
+	• Batch processing: <150ms per image average
+	• Camera capture to result: <3 seconds total
+	• Measurement: Automated benchmarking on target devices
+NFR-002: Memory Usage
+	• Peak RAM during inference: <150MB
+	• App total memory footprint: <200MB
+	• No memory leaks during extended use
+	• Measurement: Xcode Instruments profiling
+NFR-003: Battery Impact
+	• <2% battery drain per 100 analyses
+	• Thermal management: Throttle if device >40°C
+	• Low Power Mode compatibility
+	• Measurement: Xcode Energy Log
+NFR-004: Storage
+	• App bundle: <100MB
+	• Both models combined: <50MB
+	• History storage: Scalable to 10,000+ entries
+	• Cache management: Auto-cleanup when storage low
+	• Measurement: File system analysis
+3.2.2 Reliability
+NFR-005: Stability
+	• Crash-free rate: >99.5%
+	• No data loss during crashes
+	• Graceful handling of low memory
+	• Auto-save analysis in progress
+	• Measurement: Crash reporting (on-device only)
+NFR-006: Offline Functionality
+	• 100% functional without internet
+	• Models bundled in app
+	• Only OTA updates require internet
+	• Measurement: Airplane mode testing
+NFR-007: Error Handling
+	• Graceful failures for:
+		○ Corrupted images
+		○ Unsupported formats
+		○ Out of memory
+		○ Model loading failures
+	• User-friendly error messages
+	• Retry mechanisms
+	• Measurement: Error scenario testing
+3.2.3 Compatibility
+NFR-008: Device Support
+	• Minimum: iPhone 11 (A13 Bionic chip)
+	• Recommended: iPhone 12 or newer
+	• iOS version: 16.0+
+	• iPad support: Future consideration
+	• Measurement: Device compatibility matrix
+NFR-009: Image Format Support
+	• JPEG, PNG, HEIC (required)
+	• WebP, TIFF (nice to have)
+	• RAW formats (future)
+	• Maximum resolution: 8K (7680×4320)
+	• Minimum resolution: 224×224
+	• Measurement: Format compatibility tests
+3.2.4 Security & Privacy
+NFR-010: Data Privacy
+	• Zero data transmission to external servers
+	• No analytics or telemetry
+	• No user tracking
+	• Images never leave device
+	• History encrypted at rest
+	• Measurement: Network traffic monitoring = 0 bytes
+NFR-011: Model Integrity
+	• SHA-256 verification for OTA updates
+	• Code signing for app bundle
+	• Secure storage for models
+	• Tamper detection
+	• Measurement: Security audit
+3.2.5 Usability
+NFR-012: Accessibility
+	• VoiceOver full support
+	• Dynamic Type (text scaling)
+	• High contrast mode
+	• Color-blind friendly indicators
+	• Haptic feedback
+	• WCAG 2.1 AA compliance
+	• Measurement: Accessibility audit
+NFR-013: User Experience
+	• Intuitive navigation (no training needed)
+	• Consistent design language (Apple HIG)
+	• Response times <100ms for UI interactions
+	• Smooth animations (60fps)
+	• Clear visual hierarchy
+	• Measurement: User testing sessions
+
+4. TECHNICAL SPECIFICATIONS
+4.1 Model Architecture
+4.1.1 Model A: Deepfake Detection
+Architecture Overview:
+	• Name: DeepfakeGuard-Mobile
+	• Base: Hybrid EfficientNet-B0 + Frequency Analysis
+	• Components:
+		○ Stream 1: EfficientNet-B0 backbone (spatial features)
+		○ Stream 2: Frequency analysis (DCT coefficients)
+		○ Attention: CBAM (Convolutional Block Attention Module)
+		○ Fusion: Concatenation + Dense layers
+		○ Output: Binary classification + confidence + heatmap
+Specifications:
+	• Parameters: ~5.5M
+	• Compressed size: 24MB (INT8 quantization)
+	• Input: 224×224 RGB face image
+	• Output: Probability [0-1], heatmap, confidence breakdown
+	• Training data: FaceForensics++, Celeb-DF, DFDC (~2M frames)
+Performance Targets:
+	• Accuracy: >95% on FaceForensics++ test set
+	• Cross-dataset: >90% on Celeb-DF, DFDC
+	• AUC-ROC: >0.98
+	• False Positive Rate: <10% on real images
+	• Inference: <150ms (iPhone 12)
+4.1.2 Model B: AI-Generated Detection
+Architecture Overview:
+	• Name: SynthDetect-Mobile
+	• Base: Hybrid ViT-Tiny + EfficientNet-B0
+	• Components:
+		○ Branch 1: ViT-Tiny encoder (global context)
+		○ Branch 2: EfficientNet-B0 (local artifacts)
+		○ Branch 3: Frequency analysis (FFT features)
+		○ Fusion: Cross-attention + concatenation
+		○ Output: Binary classification + confidence + generator attribution
+Specifications:
+	• Parameters: ~6.2M
+	• Compressed size: 26MB (INT8 quantization)
+	• Input: 224×224 RGB image
+	• Output: Probability [0-1], generator type, confidence
+	• Training data: GenImage, DiffusionDB, ForenSynths (~1.7M images)
+	• Generators: SD 1.5/2.1/XL, DALL-E 2/3, Midjourney v4/v5/v6, Sora, Grok, StyleGAN2/3
+Performance Targets:
+	• Accuracy: >92% on multi-generator test set
+	• Zero-shot: >85% on unseen generators (Sora, Grok, DALL-E 3, MJ v6)
+	• AUC-ROC: >0.95
+	• False Positive Rate: <12% on real images
+	• Inference: <200ms (iPhone 12)
+4.2 Technology Stack
+iOS Development:
+	• Language: Swift 5.9+
+	• UI Framework: SwiftUI
+	• ML Framework: CoreML
+	• Computer Vision: Vision framework
+	• Camera: AVFoundation
+	• Storage: Core Data + FileManager
+	• Cloud: CloudKit (settings sync only)
+Model Development:
+	• Framework: PyTorch 2.0+
+	• Training: NVIDIA A100 GPUs
+	• Libraries: timm, albumentations, wandb
+	• Optimization: PyTorch quantization, ONNX, CoreML Tools
+Deployment:
+	• App Store: Standard distribution
+	• Model hosting: Custom endpoint for OTA updates
+	• Analytics: None (privacy-first)
+	• Crash reporting: On-device only
+4.3 Data Requirements
+4.3.1 Training Datasets
+Model A (Deepfake):
+	• FaceForensics++ (1,000 real, 4,000 fake videos)
+	• Celeb-DF v2 (590 real, 5,639 fake videos)
+	• DFDC subset (23,654 real, 104,500 fake videos)
+	• Total: ~2M extracted frames
+	• Split: 70% train, 15% val, 15% test
+Model B (AI-Generated):
+	• GenImage (100K real, 100K AI)
+	• DiffusionDB (500K real, 500K AI)
+	• ForenSynths (50K real, 50K AI)
+	• Custom collection (200K real, 200K AI from DALL-E 3, MJ, Sora)
+	• Total: 1.7M images
+	• Split: 70% train, 15% val, 15% test
+4.3.2 Zero-Shot Test Data (Model B)
+Held-Out Generators:
+	• DALL-E 3: 5,000 images
+	• Midjourney v6: 5,000 images
+	• Sora: 2,000 images (if available)
+	• Grok: 2,000 images
+	• Real images: 14,000 (COCO, ImageNet)
+4.4 Model Update Infrastructure
+Update Server:
+	• RESTful API endpoint
+	• JSON manifest with:
+		○ Model name
+		○ Version number
+		○ Download URL
+		○ SHA-256 checksum
+		○ File size
+		○ Release notes
+	• HTTPS only
+	• CDN for global distribution
+Update Format:
+{
+  "models": [
+    {
+      "name": "DeepfakeGuard",
+      "version": "1.2",
+      "filename": "DeepfakeGuard-v1.2.mlmodel",
+      "url": "https://cdn.example.com/models/DeepfakeGuard-v1.2.mlmodel",
+      "checksum": "sha256:abc123...",
+      "size": 24567890,
+      "releaseNotes": "Improved accuracy on low-quality images",
+      "releaseDate": "2025-12-01"
+    }
+  ]
+}
+
+5. USER INTERFACE SPECIFICATIONS
+5.1 Design Principles
+	1. Simplicity First: No feature should require explanation
+	2. Privacy Transparency: Always visible that processing is on-device
+	3. Progressive Disclosure: Basic → Detailed → Technical (user choice)
+	4. Apple HIG Compliance: Native iOS look and feel
+	5. Accessibility: WCAG 2.1 AA compliant
+5.2 Screen Specifications
+5.2.1 Home Screen
+Purpose: Primary navigation hub
+Elements:
+	• App logo + tagline
+	• Three primary action buttons:
+		○ 📷 Camera (immediate capture)
+		○ 🖼️ Gallery (browse photos)
+		○ 📋 Batch Analysis (multiple images)
+	• Recent analyses list (last 5):
+		○ Thumbnail
+		○ Filename
+		○ Verdict (color-coded)
+		○ Confidence percentage
+		○ Timestamp
+	• Bottom navigation:
+		○ ⚙️ Settings
+		○ 📚 Learn
+		○ 📊 History
+5.2.2 Analysis Screen
+Purpose: Configure and initiate analysis
+Elements:
+	• Image preview (large, centered)
+	• Detection type selector:
+		○ Segmented control (Deepfake / AI-Generated)
+		○ Description below selector
+	• Sensitivity slider:
+		○ Label: "Sensitivity"
+		○ Value display: "70%"
+		○ Range labels: "Conservative" ← → "Aggressive"
+	• Primary action button:
+		○ "🔍 Analyze Image" (blue, full-width)
+		○ Loading state: "Analyzing..." with spinner
+	• Context help icon (? button)
+5.2.3 Result Screen - Level 1 (Quick Verdict)
+Purpose: Immediate answer
+Elements:
+	• Large verdict card:
+		○ Icon (⚠️ red for fake, ✓ green for real)
+		○ Text: "LIKELY FAKE" or "LIKELY REAL"
+		○ Confidence: "87%" (large)
+		○ Confidence meter (horizontal bar)
+	• Brief explanation (2-3 sentences)
+	• "See Detailed Analysis →" button
+	• Action buttons:
+		○ Save
+		○ Share
+		○ Analyze Another
+5.2.4 Result Screen - Level 2 (Detailed Analysis)
+Purpose: In-depth findings
+Elements:
+	• Scrollable content:
+		○ Verdict summary (same as Level 1)
+		○ Full explanation paragraph
+		○ Side-by-side comparison:
+			§ Original image
+			§ Heatmap overlay
+		○ Toggle: "Show/Hide Heatmap"
+		○ "View Technical Details →" button
+		○ List of detected artifacts:
+			§ "Inconsistent lighting detected"
+			§ "Frequency anomalies in face region"
+			§ etc.
+	• Action toolbar:
+		○ Save result
+		○ Share report
+		○ Export with heatmap
+5.2.5 Result Screen - Level 3 (Technical Forensics)
+Purpose: Advanced users/researchers
+Elements:
+	• All Level 2 content plus:
+		○ Confidence breakdown table:
+			§ Region | Confidence | Status
+			§ Face | 92% | Suspicious
+			§ Background | 45% | Normal
+		○ Frequency spectrum graph
+		○ Attention heatmap (raw)
+		○ Metadata analysis (if enabled):
+			§ EXIF data
+			§ Software tags
+			§ Camera model
+		○ Model information:
+			§ Model version
+			§ Inference time
+			§ Memory usage
+5.2.6 Batch Analysis Screen
+Purpose: Process multiple images
+Elements:
+	• Image selection grid:
+		○ Thumbnails with checkboxes
+		○ "Select All" / "Deselect All" buttons
+		○ Count: "15 images selected"
+	• Detection type selector
+	• Sensitivity slider
+	• "Analyze Batch" button
+	• Progress view (when running):
+		○ Progress bar
+		○ "Analyzing 7 of 15..."
+		○ Estimated time remaining
+		○ Pause / Cancel buttons
+5.2.7 Batch Results Screen
+Purpose: Review batch findings
+Elements:
+	• Summary statistics:
+		○ Total analyzed
+		○ Fake count
+		○ Real count
+		○ Uncertain count
+		○ Average confidence
+	• Sort options:
+		○ Most suspicious first
+		○ Highest confidence
+		○ Filename
+		○ Timestamp
+	• Filter options:
+		○ Show All / Fake Only / Real Only / Uncertain
+	• Results list:
+		○ Thumbnail
+		○ Filename
+		○ Verdict badge
+		○ Confidence
+		○ Tap to see details
+	• Export options:
+		○ CSV Report
+		○ PDF Report
+		○ Zip Archive
+5.2.8 History Screen
+Purpose: Access past analyses
+Elements:
+	• Search bar (by filename, date)
+	• Date range filter
+	• Verdict filter (All / Fake / Real)
+	• Sorted list:
+		○ Date headers (Today, Yesterday, Last Week, etc.)
+		○ Analysis entries:
+			§ Thumbnail (if saved)
+			§ Filename
+			§ Verdict + confidence
+			§ Timestamp
+		○ Swipe actions:
+			§ Delete
+			§ Re-analyze
+			§ Share
+	• Bulk actions:
+		○ Select multiple
+		○ Delete selected
+		○ Export selected
+5.2.9 Settings Screen
+Purpose: App configuration
+Sections:
+	• Analysis
+		○ Default detection type
+		○ Default sensitivity
+		○ Auto-analyze on capture
+		○ Save images to history
+	• Models
+		○ Current versions (Model A, Model B)
+		○ Check for updates button
+		○ Auto-update toggle
+		○ Download over cellular toggle
+		○ Total storage used
+	• Privacy
+		○ Enable metadata analysis
+		○ iCloud sync toggle
+		○ Clear history
+		○ Export all data
+	• Appearance
+		○ Theme (Light / Dark / Auto)
+		○ Result detail level
+	• Advanced
+		○ Developer mode
+		○ Export debug logs
+	• About
+		○ App version
+		○ Model versions
+		○ Privacy policy
+		○ Terms of service
+		○ Contact / Feedback
+		○ Rate app
+5.2.10 Onboarding Screens (4 screens)
+Screen 1: Welcome
+	• Hero image
+	• "Detect Deepfakes & AI Images"
+	• "100% Private. On Your Device."
+	• "Continue" button
+	• "Skip" link
+Screen 2: What Are Deepfakes?
+	• Illustration/example
+	• Simple explanation
+	• "Face swaps, voice cloning, manipulated videos"
+	• "Next" button
+Screen 3: What Are AI-Generated Images?
+	• Illustration/example
+	• Simple explanation
+	• "Created by Midjourney, DALL-E, Stable Diffusion"
+	• "Not inherently bad, but knowing is important"
+	• "Next" button
+Screen 4: How It Works
+	• Privacy icon
+	• "Two specialized AI models analyze every pixel"
+	• "No data leaves your phone. Ever."
+	• "Get Started" button
+5.3 Visual Design System
+5.3.1 Color Palette
+Light Mode:
+	• Background: #FFFFFF
+	• Secondary Background: #F2F2F7
+	• Primary Text: #000000
+	• Secondary Text: #8E8E93
+	• Accent: #007AFF (Apple Blue)
+	• Success/Real: #34C759 (Green)
+	• Warning/Fake: #FF3B30 (Red)
+	• Uncertain: #FF9500 (Orange)
+Dark Mode:
+	• Background: #000000
+	• Secondary Background: #1C1C1E
+	• Primary Text: #FFFFFF
+	• Secondary Text: #8E8E93
+	• Accent: #0A84FF (Apple Blue - Dark variant)
+	• Success/Real: #30D158 (Green - Dark variant)
+	• Warning/Fake: #FF453A (Red - Dark variant)
+	• Uncertain: #FF9F0A (Orange - Dark variant)
+5.3.2 Typography
+	• Display: SF Pro Display
+		○ Large Title: 34pt Bold
+		○ Title 1: 28pt Bold
+		○ Title 2: 22pt Bold
+		○ Title 3: 20pt Semibold
+	• Text: SF Pro Text
+		○ Headline: 17pt Semibold
+		○ Body: 17pt Regular
+		○ Callout: 16pt Regular
+		○ Subheadline: 15pt Regular
+		○ Footnote: 13pt Regular
+		○ Caption 1: 12pt Regular
+5.3.3 Icons
+	• SF Symbols for all system icons
+	• Custom icons for:
+		○ App logo
+		○ Detection type indicators
+		○ Verdict badges
+		○ Heatmap legend
+	• Consistent 2px stroke weight
+5.3.4 Spacing
+	• Base unit: 8px
+	• Common spacing:
+		○ Extra small: 4px
+		○ Small: 8px
+		○ Medium: 16px
+		○ Large: 24px
+		○ Extra large: 32px
+	• Screen padding: 16px (iPhone), 20px (iPad)
+	• Card corner radius: 12px
+	• Button corner radius: 8-12px
+
+6. USER FLOWS
+6.1 Primary Flows
+Flow 1: Quick Camera Analysis
+	1. User launches app → Home Screen
+	2. Taps "Camera" button
+	3. Camera opens → User takes photo
+	4. Automatically navigates to Analysis Screen with captured image
+	5. Default settings applied (Deepfake detection, 70% sensitivity)
+	6. User taps "Analyze Image"
+	7. Analysis runs (<3 seconds)
+	8. Results displayed (Level 1)
+	9. User can:
+		○ View details (→ Level 2)
+		○ Share result
+		○ Analyze another
+		○ Return to home
+Success Criteria: Complete flow in <30 seconds
+Flow 2: Gallery Upload with Custom Settings
+	1. User launches app → Home Screen
+	2. Taps "Gallery" button
+	3. Photo picker opens
+	4. User selects image
+	5. Analysis Screen displayed
+	6. User changes:
+		○ Detection type to "AI-Generated"
+		○ Sensitivity to 80% (Conservative)
+	7. User taps "Analyze Image"
+	8. Analysis runs
+	9. Results displayed
+	10. User taps "See Detailed Analysis"
+	11. Views heatmap and explanation
+	12. Taps "Save" → Saved to history
+Success Criteria: Flow feels natural, no confusion
+Flow 3: Batch Processing
+	1. User navigates to Home → Taps "Batch Analysis"
+	2. Photo picker in multi-select mode
+	3. User selects 50 images
+	4. Batch Analysis Screen displayed
+	5. User sets detection type to "AI-Generated"
+	6. Taps "Analyze Batch"
+	7. Progress shown (real-time updates)
+	8. Batch completes (~2 minutes)
+	9. Batch Results Screen displayed:
+		○ Summary: "12 Fake, 38 Real"
+		○ Sorted by "Most Suspicious"
+	10. User filters to "Fake Only"
+	11. Reviews flagged images
+	12. Exports CSV report
+Success Criteria: No crashes, accurate progress, results sortable
+Flow 4: Model Update
+	1. User opens app
+	2. App checks for updates (background)
+	3. Notification: "Model Update Available"
+	4. User taps notification → Settings Screen
+	5. "Model Updates" section shows:
+		○ "DeepfakeGuard v1.3 available (22MB)"
+		○ Release notes
+	6. User taps "Download"
+	7. Progress bar displayed
+	8. Download completes
+	9. Model installed automatically
+	10. Confirmation: "Model updated successfully"
+	11. App continues normally with new model
+Success Criteria: Seamless, no interruption to current analyses, user informed of improvements
+Flow 5: First-Time User Onboarding
+	1. User installs app from App Store
+	2. Opens app for first time
+	3. Onboarding Screen 1: Welcome
+		○ Reads value proposition
+		○ Taps "Continue"
+	4. Onboarding Screen 2: What Are Deepfakes?
+		○ Views examples and explanation
+		○ Taps "Next"
+	5. Onboarding Screen 3: What Are AI-Generated Images?
+		○ Views examples and explanation
+		○ Taps "Next"
+	6. Onboarding Screen 4: How It Works
+		○ Understands privacy promise
+		○ Taps "Get Started"
+	7. Arrives at Home Screen
+	8. System prompts for camera/photo permissions
+	9. User grants permissions
+	10. Ready to analyze first image
+Success Criteria: User understands app purpose and privacy in <90 seconds
+Flow 6: Reviewing History
+	1. User navigates to History Screen
+	2. Sees chronologically organized past analyses
+	3. Searches for specific image by filename
+	4. Filters to show only "Fake" results
+	5. Selects an entry from last week
+	6. Views full result details
+	7. Taps "Re-analyze" to check with updated model
+	8. New analysis runs
+	9. Compares old vs new results
+	10. Shares updated result via Messages
+Success Criteria: History searchable, re-analysis preserves original timestamp
+
+7. BUSINESS REQUIREMENTS
+7.1 Monetization Strategy
+Phase 1: Consumer App (Free)
+Timeframe: Launch → Year 1
+Model: Completely Free
+	• No ads
+	• No in-app purchases
+	• No usage limitations
+	• No watermarks
+	• Full feature access for all users
+Rationale:
+	• Build user base and reputation
+	• Gather real-world usage data
+	• Establish research credibility
+	• Create media buzz
+	• Enable academic publication
+Success Metrics:
+	• 50,000+ downloads in Year 1
+	• 10,000+ daily active users
+		○ 4.5 App Store rating
+	• Media coverage (5+ major tech publications)
+Phase 2: Enterprise API (Revenue)
+Timeframe: Year 2+
+Model: Usage-Based Pricing
+	• Cloud API for businesses
+	• Pricing tiers:
+		○ Startup: $0.02/analysis (up to 10K/month)
+		○ Business: $0.01/analysis (10K-100K/month)
+		○ Enterprise: Custom pricing (100K+/month)
+	• SLA guarantees
+	• Priority support
+	• Custom model training
+Target Customers:
+	• Social media platforms (content moderation)
+	• Dating apps (profile verification)
+	• News organizations (fact-checking)
+	• E-commerce platforms (product image verification)
+	• Insurance companies (fraud detection)
+	• Legal firms (evidence verification)
+Revenue Projections (Year 2):
+	• Conservative: $100K ARR (5 customers)
+	• Moderate: $500K ARR (20 customers)
+	• Optimistic: $2M ARR (50 customers)
+Phase 3: Premium Features (Optional)
+Timeframe: Year 2+ (if needed)
+Potential Premium Tier:
+	• Video deepfake detection
+	• Real-time camera scanning
+	• Priority model updates
+	• Advanced batch processing (unlimited)
+	• API access for developers
+	• White-label licensing
+Pricing: $4.99/month or $49.99/year
+Note: Only pursue if necessary for sustainability. Preference is to keep consumer app free.
+7.2 Distribution Strategy
+7.2.1 App Store Presence
+App Name: TruthLens (or alternative if taken)
+Subtitle: "Detect Deepfakes & AI Images"
+Keywords:
+	• deepfake detector
+	• ai image detector
+	• fake image
+	• photo verification
+	• image forensics
+	• synthetic media
+	• content authenticity
+	• privacy
+Category:
+	• Primary: Utilities
+	• Secondary: Photo & Video
+Screenshots (Required: 6.5" + 5.5" iPhone):
+	1. Hero shot: Analysis result showing "Likely Fake" with confidence
+	2. Side-by-side comparison with heatmap
+	3. Batch processing interface
+	4. Privacy message: "100% On-Device Processing"
+	5. Educational content showcase
+	6. Settings/customization options
+App Preview Video (15-30 seconds):
+	1. Quick demo of camera capture
+	2. Analysis running
+	3. Results displayed
+	4. Privacy emphasis
+	5. Call to action
+Description:
+TruthLens uses advanced AI to detect deepfakes and AI-generated images—completely on your device with zero data transmission.
+TWO SPECIALIZED MODELS:
+• Deepfake Detection: Identifies face swaps, manipulated videos, and facial alterations
+• AI-Generated Detection: Recognizes images from DALL-E, Midjourney, Stable Diffusion, and more
+100% PRIVATE:
+All processing happens on your device. No images, no data, nothing ever leaves your phone.
+FEATURES:
+• Camera & gallery analysis
+• Batch processing (up to 500 images)
+• Adjustable sensitivity
+• Detailed forensic reports
+• Heatmap visualization
+• Analysis history
+• iCloud sync (settings only)
+• Regular model updates
+RESEARCH-BACKED:
+Built on cutting-edge research with >95% accuracy on benchmark datasets. Models optimized specifically for mobile deployment.
+Perfect for:
+✓ Verifying social media content
+✓ Fact-checking news images
+✓ Dating app profile verification
+✓ Personal media authentication
+✓ Educational purposes
+Download free. No ads. No tracking. No subscriptions.
+7.2.2 Launch Strategy
+Phase 1: Academic Release (Weeks 1-2)
+	• Submit papers to ArXiv
+	• Email to academic mailing lists (computer vision, security)
+	• Post on research forums (Reddit r/MachineLearning, Twitter/X)
+	• TestFlight beta for 50 researchers
+	• Gather feedback, iterate
+Phase 2: Public Beta (Weeks 3-4)
+	• Expand TestFlight to 500 users
+	• Reach out to tech press:
+		○ TechCrunch
+		○ The Verge
+		○ Ars Technica
+		○ Wired
+		○ MIT Technology Review
+	• Reddit announcements:
+		○ r/technology
+		○ r/privacy
+		○ r/Apple
+		○ r/iphone
+	• Hacker News post with technical deep-dive
+	• Product Hunt preparation
+Phase 3: App Store Launch (Week 5)
+	• Global release (all regions)
+	• Press kit distribution
+	• Product Hunt launch
+	• Social media campaign
+	• Demo videos on YouTube
+	• Conference presentation (if accepted)
+Phase 4: Sustained Growth (Weeks 6-12)
+	• Regular updates (bug fixes, improvements)
+	• Feature releases (based on user feedback)
+	• Model accuracy improvements
+	• Community engagement
+	• User testimonials
+	• Case studies
+7.2.3 Marketing Channels
+Owned:
+	• Landing page (truthlens.app or similar)
+	• Blog (technical articles, research updates)
+	• Email list (researchers, early adopters)
+	• GitHub (model releases, documentation)
+Earned:
+	• Press coverage (tech publications)
+	• Academic citations
+	• Reddit/HN discussions
+	• YouTube reviews (tech YouTubers)
+	• Twitter/X viral posts
+Paid (If budget allows):
+	• App Store search ads ($500-1000/month)
+	• Targeted to keywords: "deepfake", "AI detector", "fake image"
+Partnerships:
+	• Academic institutions
+	• Fact-checking organizations
+	• Privacy advocacy groups
+	• Journalism schools
+	• Security researchers
+7.3 Success Metrics (KPIs)
+Month 1 Targets
+Metric	Target	Stretch Goal
+Total Downloads	10,000	25,000
+Daily Active Users	1,000	3,000
+Analyses Performed	50,000	150,000
+App Store Rating	4.5+	4.7+
+Crash-Free Rate	99.5%	99.8%
+Average Session Time	2 min	4 min
+Retention (Day 7)	40%	60%
+Media Mentions	5	10
+Quarter 1 Targets (3 Months)
+Metric	Target	Stretch Goal
+Total Downloads	50,000	100,000
+Daily Active Users	5,000	15,000
+Analyses Performed	500,000	1,500,000
+App Store Rating	4.5+	4.8+
+GitHub Stars	500	1,000
+Paper Citations	10	25
+Enterprise Inquiries	5	20
+Year 1 Targets (12 Months)
+Metric	Target	Stretch Goal
+Total Downloads	200,000	500,000
+Monthly Active Users	50,000	150,000
+Total Analyses	5M	15M
+Research Citations	50	100
+Conference Acceptance	1 paper	2 papers
+Enterprise Pilots	10	25
+Revenue (Enterprise)	$0	$50K
+
+8. RESEARCH REQUIREMENTS
+8.1 Publication Goals
+8.1.1 Target Venues (Ranked by Priority)
+Tier 1 Conferences:
+	1. CVPR (Computer Vision and Pattern Recognition)
+		○ Deadline: November
+		○ Acceptance rate: ~25%
+		○ Focus: Novel architectures, mobile optimization
+	2. ICCV (International Conference on Computer Vision)
+		○ Deadline: March
+		○ Acceptance rate: ~25%
+		○ Focus: Cross-generator generalization
+	3. NeurIPS (Neural Information Processing Systems)
+		○ Deadline: May
+		○ Acceptance rate: ~20%
+		○ Focus: Learning theory, efficiency
+Tier 2 (Backup): 4. ECCV (European Conference on Computer Vision) 5. ACM CCS (Computer and Communications Security) 6. USENIX Security Symposium
+Journals: 7. IEEE TIFS (Transactions on Information Forensics and Security) 8. Pattern Recognition 9. IEEE TPAMI (Transactions on Pattern Analysis and Machine Intelligence)
+8.1.2 Paper Deliverables
+Paper 1: Deepfake Detection
+	• Title: "Efficient Multi-Stream Deepfake Detection for Mobile Deployment"
+	• Target: CVPR 2026 (November 2025 deadline)
+	• Length: 8 pages main + 2 pages supplementary
+	• Contributions:
+		1. Novel hybrid frequency-spatial architecture
+		2. CBAM integration for mobile efficiency
+		3. Cross-manipulation generalization study
+		4. Complete mobile deployment methodology
+	• Key Results:
+			§ 95% accuracy on FaceForensics++
+			§ 90% cross-dataset generalization
+		○ <25MB model size
+		○ <150ms inference on iPhone
+Paper 2: AI-Generated Detection
+	• Title: "Universal Synthetic Image Detection: A Lightweight Cross-Generator Framework"
+	• Target: ICCV 2026 (March 2026 deadline)
+	• Length: 8 pages main + 2 pages supplementary
+	• Contributions:
+		1. Hybrid ViT-CNN architecture for efficiency
+		2. Multi-generator training protocol (20+ generators)
+		3. Zero-shot generalization to unseen generators
+		4. Real-world robustness evaluation
+	• Key Results:
+			§ 92% accuracy across diverse generators
+			§ 85% zero-shot on DALL-E 3, Midjourney v6, Sora, Grok
+		○ <26MB model size
+		○ Social media degradation resilience
+8.1.3 Research Questions
+Paper 1 (Deepfake):
+	1. How does frequency-spatial fusion improve detection accuracy vs. single-modality approaches?
+	2. What is the optimal accuracy-efficiency trade-off for mobile deployment?
+	3. How well do mobile models generalize across manipulation techniques?
+	4. What is the impact of attention mechanisms on constrained models?
+Paper 2 (AI-Generated):
+	1. Can a single model detect images from diverse generator families (GAN vs Diffusion)?
+	2. What features enable effective zero-shot generalization to unseen generators?
+	3. How does model performance degrade over time as new generators emerge?
+	4. Are ViT-based models more generalizable than pure CNNs for this task?
+	5. What is the minimal model size for effective cross-generator detection?
+8.1.4 Experimental Requirements
+Ablation Studies (Both Papers):
+	• Component contribution analysis
+	• Architecture variants comparison
+	• Training strategy impact
+	• Compression effects on accuracy
+	• Attention mechanism ablation
+	• Data augmentation impact
+Baseline Comparisons:
+	• Paper 1: XceptionNet, EfficientNet-B4, F3Net, Mobile variants
+	• Paper 2: CNNDetection, UniversalFakeDetect, Gragnaniello et al., Frank et al.
+Evaluation Protocols:
+	• In-distribution performance
+	• Cross-dataset generalization
+	• Zero-shot evaluation (Paper 2)
+	• Robustness to degradation (JPEG, resize, filters)
+	• Speed-accuracy trade-offs
+	• Model size vs accuracy
+Statistical Rigor:
+	• 3+ runs with different random seeds
+	• Confidence intervals for all metrics
+	• Statistical significance tests (t-tests, bootstrap)
+	• Error analysis (failure cases)
+8.1.5 Code & Data Release
+GitHub Repository Structure:
+TruthLens-Research/
+├── README.md
+├── LICENSE (Apache 2.0 or MIT)
+├── models/
+│   ├── DeepfakeGuard-Mobile.mlmodel
+│   ├── SynthDetect-Mobile.mlmodel
+│   └── model_cards.md
+├── inference/
+│   ├── swift/ (iOS integration)
+│   └── python/ (PyTorch inference)
+├── evaluation/
+│   ├── benchmark.py
+│   ├── metrics.py
+│   └── datasets.md
+├── preprocessing/
+│   ├── face_extraction.py
+│   └── augmentation.py
+├── docs/
+│   ├── architecture.md
+│   ├── training.md
+│   └── deployment.md
+├── paper/
+│   ├── paper1.pdf
+│   ├── paper2.pdf
+│   └── supplementary.pdf
+└── requirements.txt
+What to Release: ✅ Pre-trained CoreML models (both)
+✅ Inference code (Swift + Python)
+✅ Evaluation scripts
+✅ Preprocessing pipeline
+✅ Dataset preparation guides
+✅ Model cards (performance, limitations, biases)
+✅ Complete documentation
+✅ Research papers (PDFs)
+What NOT to Release: ❌ Full training code (competitive advantage)
+❌ Training datasets (use public datasets, cite properly)
+❌ Proprietary optimization techniques
+❌ OTA update infrastructure
+Timeline:
+	• Release after paper acceptance
+	• Staged release: Models first, then full code
+	• Maintain repository actively (respond to issues)
+8.2 Academic Collaboration
+Target Partnerships:
+	• University computer vision labs (MIT, Stanford, CMU, etc.)
+	• Deepfake detection research groups
+	• Media forensics researchers
+	• Security and privacy labs
+Collaboration Opportunities:
+	• Dataset sharing
+	• Co-authored follow-up papers
+	• Benchmark establishment
+	• Adversarial robustness studies
+	• Cross-institutional validation
+
+9. RISK MANAGEMENT
+9.1 Technical Risks
+Risk	Probability	Impact	Mitigation Strategy	Contingency Plan
+Model size exceeds 50MB	Medium	High	Aggressive quantization (INT8), pruning, knowledge distillation during training	Accept 55-60MB if accuracy maintained, or split into downloadable modules
+Inference too slow (<200ms)	Medium	Medium	Profile and optimize bottlenecks, use Metal Performance Shaders, reduce input resolution to 192x192	Add "Fast Mode" with lower accuracy but <100ms inference
+Poor generalization to new AI models	High	High	Train on diverse generators, continuous model updates, focus on universal features	OTA updates every 3 months, user feedback loop for new generators
+App Store rejection	Low	High	Follow guidelines strictly, no controversial content, clear privacy policy	Pre-submission review by Apple consultant, have appeal ready
+Memory leaks/crashes	Low	High	Extensive testing, profiling with Instruments, proper memory management	Staged rollout, fast hotfix process, automated crash reporting
+Thermal throttling on older devices	Medium	Low	Implement adaptive performance, throttle batch size, monitor device temperature	Warn users, suggest breaks, pause processing automatically
+Dataset acquisition difficulties	Low	Medium	Use public datasets, start early, have backups	Use augmented data, synthetic generation, smaller datasets with transfer learning
+Model accuracy below targets	Medium	High	Extended training, architectural improvements, better augmentation	Lower targets to 93%/88%, emphasize speed/size trade-off in paper
+9.2 Research Risks
+Risk	Probability	Impact	Mitigation Strategy	Contingency Plan
+Paper rejected from top venues	Medium	Medium	Strong novelty emphasis, thorough experiments, clear writing, early feedback from advisors	Target multiple conferences, submit to journals, ArXiv preprint maintains priority
+Novelty questioned by reviewers	Low	High	Emphasize mobile deployment angle, cross-generator scope, real-world focus, comprehensive evaluation	Pivot to application paper, focus on systems contribution, target different venue
+SOTA comparison unfavorable	Low	Medium	Acknowledge trade-offs, emphasize efficiency-accuracy Pareto frontier, mobile-specific benchmarks	Focus on deployment feasibility, real-world metrics, practical impact
+Dataset availability issues	Low	High	Download datasets immediately, maintain local backups, document collection process	Use alternative datasets, augmentation, transfer learning from related tasks
+Reproducibility concerns	Low	Medium	Detailed documentation, release code/models, provide hyperparameters, fix random seeds	Offer to provide trained models, collaborate on reproduction, detailed FAQ
+Scooped by concurrent work	Medium	Low	Fast execution, ArXiv preprint early, emphasize unique contributions	Differentiate clearly, combine papers if complementary, pivot to follow-up work
+9.3 Product Risks
+Risk	Probability	Impact	Mitigation Strategy	Contingency Plan
+Low user adoption	Medium	Medium	Strong marketing, press coverage, free model, clear value proposition, viral features	Pivot to B2B, focus on specific niche (journalism/dating), add more features
+Competitor launches similar app	Medium	Low	First-mover advantage, research credibility, superior accuracy, privacy focus	Emphasize unique features, research backing, continuous improvement, community
+Misuse for malicious purposes	Low	High	Clear ToS, educational messaging, ethical guidelines, limit certain features if needed	Add usage limitations, reporting mechanism, cooperation with authorities
+Privacy concerns despite on-device	Low	Medium	Transparent communication, open-source inspection, security audit, clear policies	Third-party privacy audit, public documentation, user education
+False accusations harm users	Medium	High	Clear disclaimers, uncertainty ranges, educational content, "verification tool not definitive proof"	Add confidence intervals, multiple model consensus, human verification recommendation
+Model degradation over time	High	Low	Regular OTA updates, performance monitoring, retrain on new data	3-month update cycle, user feedback system, fallback to conservative thresholds
+App Store policy changes	Low	High	Monitor policies, maintain compliance, avoid controversial features	Have web version ready, alternative distribution (TestFlight), appeal process
+Negative press / backlash	Low	Medium	Proactive communication, responsible messaging, ethical framework, transparency	Crisis communication plan, community engagement, emphasize benefits
+9.4 Resource Risks
+Risk	Probability	Impact	Mitigation Strategy	Contingency Plan
+Insufficient compute for training	Low	Medium	Cloud GPU rental (A100), optimize training code, smaller model variants if needed	Use Colab Pro+, Lambda Labs, request academic compute grants
+Burnout / time constraints	Medium	High	Realistic timeline, 2-month buffer, prioritize ruthlessly, MVP first	Extend timeline, cut non-critical features, seek collaborators
+Budget limitations	Low	Low	Free tools (PyTorch, Swift), public datasets, minimal infrastructure costs	Seek grants, sponsorships, crowdfunding, delay non-essential expenses
+Lack of expertise in specific areas	Medium	Medium	Online learning, documentation, community forums, seek mentorship	Hire consultants for critical gaps, simplify approach, use proven methods
+
+10. TIMELINE & MILESTONES
+10.1 Development Phases
+Phase 1: Foundation (Weeks 1-2)
+Week 1: Environment & Data
+	• [ ] Set up development environment (PyTorch, CUDA, iOS tools)
+	• [ ] Download all datasets (FF++, Celeb-DF, DFDC, GenImage, DiffusionDB, ForenSynths)
+	• [ ] Verify dataset integrity and explore data
+	• [ ] Implement face detection pipeline
+	• [ ] Build data loaders with augmentation
+	• [ ] Create train/val/test splits
+Week 2: Architecture Implementation
+	• [ ] Implement EfficientNet-B0 backbone
+	• [ ] Add CBAM attention modules
+	• [ ] Implement frequency extraction (DCT)
+	• [ ] Build dual-stream architecture (Model A)
+	• [ ] Implement ViT-Tiny + CNN hybrid (Model B)
+	• [ ] Set up training infrastructure (logging, checkpoints)
+Milestone 1: Data pipeline ready, architectures implemented ✓
+
+Phase 2: Model Training (Weeks 3-5)
+Week 3: Model A Training (Deepfake)
+	• [ ] Phase 1 training: Classification head only (20 epochs)
+	• [ ] Phase 2 training: Unfreeze top layers (30 epochs)
+	• [ ] Phase 3 training: Full fine-tuning (20 epochs)
+	• [ ] Evaluate on FF++ test set
+	• [ ] Cross-dataset evaluation (Celeb-DF, DFDC)
+	• [ ] Run ablation studies
+Week 4: Model B Training (AI-Generated)
+	• [ ] Stage 1: Train on GANs (StyleGAN2/3)
+	• [ ] Stage 2: Add diffusion models (SD 1.5, 2.1, XL)
+	• [ ] Stage 3: Add DALL-E/Midjourney proxies
+	• [ ] Evaluate in-distribution performance
+	• [ ] Collect/curate zero-shot test data (DALL-E 3, MJ v6, Sora, Grok)
+	• [ ] Zero-shot evaluation
+Week 5: Refinement & Optimization
+	• [ ] Final training iterations based on results
+	• [ ] Hyperparameter tuning
+	• [ ] Model ensembling experiments (if needed)
+	• [ ] Comprehensive evaluation on all test sets
+	• [ ] Document training process and results
+Milestone 2: Both models trained, achieving target accuracy ✓
+
+Phase 3: Model Optimization & Conversion (Week 6)
+Week 6: Mobile Preparation
+	• [ ] Post-training quantization (INT8)
+	• [ ] Quantization-aware training if needed
+	• [ ] Pruning experiments
+	• [ ] Convert PyTorch → ONNX → CoreML (both models)
+	• [ ] Verify CoreML accuracy matches PyTorch
+	• [ ] Optimize for Neural Engine
+	• [ ] Benchmark on iPhone devices (speed, memory, battery)
+	• [ ] Iterate if performance targets not met
+Milestone 3: CoreML models ready, <50MB total, <200ms inference ✓
+
+Phase 4: iOS App Development (Weeks 7-8)
+Week 7: Core Functionality
+	• [ ] Create Xcode project structure
+	• [ ] Integrate CoreML models
+	• [ ] Implement camera capture
+	• [ ] Implement gallery picker
+	• [ ] Build preprocessing pipeline (Swift)
+	• [ ] Implement inference service wrapper
+	• [ ] Create home screen UI
+	• [ ] Create analysis screen UI
+	• [ ] Create result display UI (Level 1)
+Week 8: Advanced Features
+	• [ ] Implement detailed result view (Level 2)
+	• [ ] Implement technical forensics view (Level 3)
+	• [ ] Add heatmap generation
+	• [ ] Build batch processing functionality
+	• [ ] Implement history storage (Core Data)
+	• [ ] Add iCloud sync (settings only)
+	• [ ] Create export functionality
+	• [ ] Build onboarding screens
+	• [ ] Implement settings screen
+	• [ ] Add model update mechanism
+Milestone 4: Full-featured iOS app complete ✓
+
+Phase 5: Testing & Polish (Week 9)
+Week 9: Quality Assurance
+	• [ ] Unit tests for inference pipeline
+	• [ ] UI/UX tests for all workflows
+	• [ ] Test on multiple devices (iPhone 11, 12, 13, 14)
+	• [ ] Test on iPad (if supported)
+	• [ ] Performance profiling and optimization
+	• [ ] Memory leak detection (Instruments)
+	• [ ] Battery impact testing
+	• [ ] Edge case testing (blurry, B&W, filters, corrupted images)
+	• [ ] Accessibility testing (VoiceOver, Dynamic Type)
+	• [ ] TestFlight beta with 50 researchers
+	• [ ] Collect feedback and iterate
+	• [ ] Bug fixes
+Milestone 5: App stable, beta feedback positive ✓
+
+Phase 6: Research Paper Writing (Week 10)
+Week 10: Paper Preparation
+	• [ ] Generate all experimental results
+	• [ ] Create figures and tables
+	• [ ] Write Paper 1 (Deepfake):
+		○ Introduction & related work
+		○ Methodology
+		○ Experiments & results
+		○ Discussion & conclusion
+	• [ ] Write Paper 2 (AI-Generated):
+		○ Introduction & related work
+		○ Methodology
+		○ Experiments & results
+		○ Discussion & conclusion
+	• [ ] Internal review and revisions
+	• [ ] Supplementary materials
+	• [ ] Submit to ArXiv
+Milestone 6: Papers drafted, submitted to ArXiv ✓
+
+Phase 7: Launch Preparation (Week 11)
+Week 11: Go-to-Market
+	• [ ] Finalize App Store assets (screenshots, video, description)
+	• [ ] Submit app to App Store review
+	• [ ] Create landing page (truthlens.app or similar)
+	• [ ] Prepare press kit (images, demo video, fact sheet)
+	• [ ] Write blog post / technical deep-dive
+	• [ ] Reach out to tech press (TechCrunch, The Verge, etc.)
+	• [ ] Prepare Product Hunt launch materials
+	• [ ] Set up social media accounts
+	• [ ] Create demo videos for YouTube
+	• [ ] Write announcement posts (Reddit, HN, Twitter/X)
+	• [ ] Monitor App Store review status
+Milestone 7: Marketing materials ready, app in review ✓
+
+Phase 8: Launch (Week 12)
+Week 12: Public Release
+	• [ ] App Store approval received
+	• [ ] Global app launch
+	• [ ] Press release distribution
+	• [ ] Product Hunt launch
+	• [ ] Reddit/HN announcements
+	• [ ] Social media campaign
+	• [ ] Email academic community
+	• [ ] Monitor initial reviews and feedback
+	• [ ] Respond to user questions/issues
+	• [ ] Hot fixes if needed
+	• [ ] Celebrate! 🎉
+Milestone 8: App live, publicly available ✓
+
+10.2 Post-Launch Roadmap (Months 3-12)
+Month 3: Stabilization
+	• Bug fixes based on user feedback
+	• Performance optimizations
+	• First model update (improved accuracy)
+	• User survey for feature prioritization
+Month 4: Feature Expansion
+	• Real-time camera scanning
+	• iPad optimization
+	• Share extension
+	• Widget for quick access
+Month 6: Major Update
+	• Video deepfake detection (frame-by-frame)
+	• Advanced batch processing improvements
+	• Generator attribution (which AI made this?)
+	• Improved heatmap visualization
+Month 9: Platform Expansion
+	• Web version (browser-based)
+	• API documentation (preparing for enterprise)
+	• White-label licensing options
+Month 12: Enterprise Launch
+	• Cloud API release
+	• Enterprise pricing tiers
+	• SLA guarantees
+	• Custom model training services
+	• Android version consideration
+
+11. APPENDIX
+11.1 Glossary
+Terms & Definitions:
+	• Deepfake: Synthetic media created using AI to replace or manipulate a person's face or voice in existing content
+	• AI-Generated Image: Image created entirely by AI models (GANs, diffusion models) from text prompts or noise
+	• Face Swap: Type of deepfake where one person's face replaces another's in video/image
+	• Face Reenactment: Manipulation where target person's facial expressions are puppeteered by source person
+	• GAN: Generative Adversarial Network - AI architecture that generates synthetic images
+	• Diffusion Model: AI architecture (e.g., Stable Diffusion, DALL-E) that generates images through iterative denoising
+	• DCT: Discrete Cosine Transform - frequency domain transformation used to detect manipulation artifacts
+	• CoreML: Apple's machine learning framework for on-device inference on iOS/macOS
+	• INT8 Quantization: Compression technique reducing model size by using 8-bit integers instead of 32-bit floats
+	• Zero-Shot: Model's ability to detect content from generators it has never seen during training
+	• Heatmap: Visual overlay showing which regions of an image triggered the detection model
+	• Attention Mechanism: Neural network component that helps models focus on relevant features
+	• OTA: Over-The-Air - wireless model/software updates without app store submission
+11.2 Assumptions
+Technical Assumptions:
+	• iPhone 11+ devices have sufficient Neural Engine capability for target inference speed
+	• INT8 quantization achieves minimal accuracy loss (<2%)
+	• CoreML conversion maintains model accuracy within 1% of PyTorch version
+	• On-device preprocessing can match training preprocessing quality
+	• Users have iOS 16.0+ (covers 90%+ of active devices)
+User Assumptions:
+	• Users understand basic concept of "fake images"
+	• Users can navigate standard iOS apps
+	• Users grant camera/photo permissions when prompted
+	• Users have internet for initial model downloads (but not for analysis)
+	• Users care about image authenticity (privacy, security, curiosity)
+Business Assumptions:
+	• Free app can gain sufficient traction to enable research publication
+	• Enterprise demand exists for detection API (Year 2+)
+	• Media coverage possible for novel privacy-focused AI tool
+	• Academic community will engage with research and cite papers
+	• App Store approval feasible for content detection tool
+Research Assumptions:
+	• Public datasets sufficiently representative of real-world content
+	• Cross-dataset evaluation indicates real-world generalization
+	• Newer AI generators share detectable characteristics with training generators
+	• Mobile deployment constraints don't disqualify from top-tier publication
+	• ArXiv preprint establishes priority for novelty claims
+11.3 Open Questions
+Technical:
+	• What is the minimum viable model size for acceptable accuracy? (experimenting with 15-25MB range)
+	• Should we support offline model updates via file import?
+	• How to handle future 3D-generated content (from models like Sora)?
+	• Should we add adversarial robustness training?
+Product:
+	• Should we add a "report fake" feature for community flagging?
+	• How to handle edge case: real photo with AI-edited background?
+	• Should we display uncertainty ranges (e.g., "60-80% confidence")?
+	• Is there demand for browser extension version?
+Research:
+	• Which paper should be prioritized for submission first?
+	• Should we pursue journal publication in parallel?
+	• Is there value in releasing intermediate model checkpoints?
+	• Should we organize a detection challenge/competition?
+Business:
+	• What's the ideal pricing for enterprise API?
+	• Should we pursue grants (NSF, DARPA, etc.)?
+	• Is there investor interest for scaling?
+	• Should we consider open-source foundation sponsorship?
+11.4 Dependencies
+External Dependencies:
+	• Public datasets remain accessible (FF++, Celeb-DF, etc.)
+	• Apple maintains CoreML API stability
+	• App Store policies don't change regarding detection apps
+	• Academic conferences maintain submission deadlines
+	• No major breakthrough renders current approaches obsolete
+Internal Dependencies:
+	• Model training completes on schedule
+	• App development keeps pace with model readiness
+	• Solo developer maintains health and motivation
+	• No major technical blockers discovered late
+	• Access to compute resources (GPUs)
+11.5 Constraints
+Technical Constraints:
+	• Model Size: Hard limit of 50MB total (25MB per model) for on-device deployment
+	• Inference Speed: <200ms per image on iPhone 12 (user experience requirement)
+	• Memory: <150MB peak RAM usage (avoid system kills)
+	• iOS Version: Minimum iOS 16.0 (CoreML feature requirements)
+	• Device Support: iPhone 11+ only (Neural Engine requirement)
+	• Input Resolution: 224×224 (balance between accuracy and speed)
+	• Batch Size: Limited by device memory (typically 1-5 images in parallel)
+Resource Constraints:
+	• Budget: Minimal (~$500-1000 for compute, domains, Apple Developer account)
+	• Time: 2-month hard deadline to MVP
+	• Team Size: Solo developer (no additional hires)
+	• Compute: Access to GPU resources for training (rental or academic)
+	• Data Storage: Limited to publicly available datasets
+Legal/Policy Constraints:
+	• Privacy: GDPR/CCPA compliance (solved by on-device processing)
+	• App Store: Must comply with Apple guidelines
+	• Copyright: Cannot use copyrighted datasets without permission
+	• Terms: Must have clear ToS regarding misuse
+	• Liability: Disclaimers about detection accuracy
+Market Constraints:
+	• Competition: Existing deepfake detectors (though mostly cloud-based)
+	• User Education: Many users unfamiliar with deepfakes/AI images
+	• Trust: Building credibility as solo developer
+	• Distribution: App Store as only channel initially
+11.6 Success Criteria (Detailed)
+Technical Success
+Model A (Deepfake Detection):
+	• ✅ Accuracy >95% on FaceForensics++ test set
+	• ✅ Cross-dataset accuracy >90% on Celeb-DF, DFDC
+	• ✅ AUC-ROC >0.98
+	• ✅ False Positive Rate <10% on COCO/ImageNet real images
+	• ✅ Model size ≤25MB (quantized)
+	• ✅ Inference time <150ms (iPhone 12)
+	• ✅ Handles edge cases: low quality, B&W, partial faces, makeup
+Model B (AI-Generated Detection):
+	• ✅ Accuracy >92% on multi-generator test set (in-distribution)
+	• ✅ Zero-shot accuracy >85% on DALL-E 3, Midjourney v6, Sora, Grok
+	• ✅ AUC-ROC >0.95
+	• ✅ False Positive Rate <12% on real images
+	• ✅ Model size ≤26MB (quantized)
+	• ✅ Inference time <200ms (iPhone 12)
+	• ✅ Social media robustness: >80% accuracy on compressed/resized images
+App Performance:
+	• ✅ Crash-free rate >99.5%
+	• ✅ Battery drain <2% per 100 analyses
+	• ✅ Memory usage <150MB peak
+	• ✅ Batch processing: 500 images without crashes
+	• ✅ All UI interactions <100ms response time
+	• ✅ 100% offline functionality (except OTA updates)
+Product Success
+Month 1:
+	• ✅ 10,000+ total downloads
+	• ✅ 1,000+ daily active users
+	• ✅ 50,000+ analyses performed
+	• ✅ App Store rating >4.5/5.0
+	• ✅ <50 negative reviews
+	• ✅ 5+ major media mentions (TechCrunch, The Verge, etc.)
+Quarter 1 (3 Months):
+	• ✅ 50,000+ total downloads
+	• ✅ 5,000+ daily active users
+	• ✅ 500,000+ total analyses
+	• ✅ Day 7 retention >40%
+	• ✅ Day 30 retention >20%
+	• ✅ 10+ enterprise inquiries
+Year 1:
+	• ✅ 200,000+ total downloads
+	• ✅ 50,000+ monthly active users
+	• ✅ 5M+ total analyses
+	• ✅ Featured by Apple (if possible)
+	• ✅ 10+ enterprise pilot programs
+	• ✅ Break-even on operational costs
+Research Success
+Paper Acceptance:
+	• ✅ At least 1 paper accepted to CVPR/ICCV/NeurIPS/ECCV
+	• ✅ Both papers published (conference or journal) within 12 months
+	• ✅ ArXiv papers receive >5,000 views combined
+	• ✅ 10+ citations within 6 months
+Community Impact:
+	• ✅ GitHub repository 500+ stars
+	• ✅ Models downloaded >1,000 times
+	• ✅ 10+ academic institutions using models
+	• ✅ Referenced in subsequent deepfake detection papers
+	• ✅ Invited talks at 2+ research institutions
+Open Source:
+	• ✅ Clean, documented codebase
+	• ✅ Reproducible results
+	• ✅ Active issue resolution (<1 week response time)
+	• ✅ 5+ external contributors
+
+12. COMPLIANCE & LEGAL
+12.1 Privacy & Data Protection
+12.1.1 Privacy Policy (Summary)
+Data Collection:
+	• ❌ NO images collected or transmitted
+	• ❌ NO personal information collected
+	• ❌ NO analytics or telemetry
+	• ❌ NO user tracking
+	• ✅ Optional iCloud sync (settings/history metadata only, user-controlled)
+Data Processing:
+	• All image analysis happens on-device
+	• No data leaves the device during analysis
+	• History stored locally in encrypted format
+	• User can delete all data at any time
+Third-Party Services:
+	• Apple iCloud (optional, user-controlled)
+	• Model update server (only downloads model files, no user data sent)
+	• App Store (standard Apple data collection for downloads)
+User Rights:
+	• Right to access: User controls all data locally
+	• Right to deletion: Clear history button
+	• Right to portability: Export functionality
+	• Right to object: Disable iCloud sync
+12.1.2 GDPR Compliance
+Legal Basis for Processing:
+	• Processing occurs on-device (user's own device)
+	• No personal data transmitted to developer
+	• User has full control over data
+GDPR Requirements: ✅ Data minimization: No unnecessary data collected
+✅ Purpose limitation: Clear purpose (image analysis)
+✅ Storage limitation: User controls retention
+✅ Integrity & confidentiality: On-device encryption
+✅ Accountability: Clear privacy policy
+✅ User rights: Access, deletion, portability provided
+12.1.3 CCPA Compliance
+California Privacy Rights:
+	• No "sale" of personal information (nothing collected to sell)
+	• No sharing with third parties
+	• User has full control
+	• Privacy policy clearly states data practices
+12.2 Terms of Service (Key Points)
+12.2.1 Acceptable Use
+Permitted Uses:
+	• Personal verification of image authenticity
+	• Educational purposes
+	• Research and academic use
+	• Fact-checking and journalism
+	• Content moderation (professional use)
+Prohibited Uses:
+	• Harassing or defaming individuals
+	• Circumventing detection for malicious purposes
+	• Creating false accusations without verification
+	• Automated scraping or bulk analysis for surveillance
+	• Any illegal activities
+12.2.2 Disclaimers
+Accuracy Disclaimers:
+	• "Detection is not 100% accurate"
+	• "Results should not be sole basis for important decisions"
+	• "False positives and false negatives can occur"
+	• "Model performance may degrade over time"
+	• "Always seek human verification for critical applications"
+Liability Limitations:
+	• "Provided 'as is' without warranties"
+	• "Not liable for decisions made based on results"
+	• "Not liable for damages from false detections"
+	• "User assumes all risk"
+Legal Disclaimer:
+	• "Not a substitute for forensic analysis"
+	• "Not admissible as evidence without expert testimony"
+	• "Should not be used to make legal accusations"
+	• "Consult professionals for legal/medical/official use"
+12.3 Intellectual Property
+12.3.1 App & Models
+Ownership:
+	• App code: Developer-owned
+	• Models: Developer-owned
+	• Training methodology: Developer-owned
+	• Research papers: Developer retains rights (even if published)
+Licensing:
+	• App (iOS): Proprietary, distributed via App Store
+	• Models (CoreML): Apache 2.0 or MIT license (open source after paper acceptance)
+	• Research code: Apache 2.0 or MIT license (partial release)
+	• Papers: Author retains copyright, grants conference/journal publication rights
+12.3.2 Trademarks
+App Name & Logo:
+	• Register trademark for "TruthLens" (or chosen name)
+	• Logo design: Original work, copyright owned
+	• Tagline: Copyright owned
+Usage Guidelines:
+	• No third-party use without permission
+	• Clear guidelines for press/media use
+	• Attribution requirements for research use
+12.4 Dataset Licensing Compliance
+FaceForensics++:
+	• Academic use permitted
+	• Cite original paper
+	• Comply with terms (non-commercial for dataset, but trained models OK for commercial use)
+Celeb-DF v2:
+	• Research use permitted
+	• Proper citation required
+DFDC:
+	• Creative Commons license
+	• Attribution required
+GenImage, DiffusionDB, ForenSynths:
+	• Verify individual licenses
+	• Ensure compliance with terms
+	• Proper attribution in papers
+AI-Generated Images:
+	• DALL-E 3, Midjourney: Terms allow for research purposes
+	• Ensure no copyright violations in collection process
+	• Document collection methodology
+12.5 Export Compliance
+Encryption:
+	• App uses standard Apple encryption (Core Data, iCloud)
+	• No custom encryption that requires export license
+	• Models are not encryption items
+Distribution:
+	• App Store handles international distribution compliance
+	• No special restrictions expected for detection tool
+
+13. QUALITY ASSURANCE
+13.1 Testing Strategy
+13.1.1 Model Testing
+Unit Tests:
+	• Data loader correctness
+	• Preprocessing pipeline
+	• Augmentation functions
+	• Metric calculations
+	• Loss functions
+Integration Tests:
+	• End-to-end training pipeline
+	• Evaluation pipeline
+	• Model export pipeline (PyTorch → ONNX → CoreML)
+Performance Tests:
+	• Inference speed benchmarks
+	• Memory usage profiling
+	• Batch processing scalability
+	• Thermal performance under load
+Accuracy Tests:
+	• Test set evaluation
+	• Cross-dataset evaluation
+	• Zero-shot evaluation
+	• Edge case evaluation
+13.1.2 iOS App Testing
+Functional Tests:
+	• Camera capture
+	• Gallery selection
+	• Image preprocessing
+	• Model inference
+	• Result display
+	• Batch processing
+	• History storage
+	• Export functionality
+	• Settings persistence
+	• iCloud sync
+	• OTA model updates
+UI/UX Tests:
+	• Navigation flows
+	• Button responsiveness
+	• Animation smoothness
+	• Error message clarity
+	• Loading states
+	• Empty states
+Compatibility Tests:
+	• iPhone 11, 12, 13, 14 (multiple screen sizes)
+	• iOS 16.0, 16.x, 17.0, 17.x
+	• Light mode, Dark mode
+	• Different languages (if localized)
+	• VoiceOver compatibility
+	• Dynamic Type scaling
+Performance Tests:
+	• Launch time
+	• First analysis time
+	• Batch processing time
+	• Memory usage
+	• Battery drain
+	• Storage usage
+	• Network usage (should be zero except OTA)
+Edge Case Tests:
+	• Corrupted images
+	• Unsupported formats
+	• Extremely large images (>8K)
+	• Extremely small images (<224×224)
+	• Low memory conditions
+	• Airplane mode
+	• Low battery mode
+	• Device overheating
+Security Tests:
+	• Data encryption verification
+	• No data leakage (network monitoring)
+	• Permission handling
+	• Secure model storage
+	• Integrity verification (checksums)
+13.1.3 Beta Testing
+TestFlight Beta (Week 9):
+	• 50 beta testers (researchers, early adopters)
+	• Feedback form for each build
+	• Crash reporting (on-device analytics only)
+	• Performance monitoring
+	• Weekly builds with fixes
+Feedback Collection:
+	• Bug reports
+	• Feature requests
+	• Usability issues
+	• Confusion points
+	• Performance complaints
+	• Suggestions
+13.2 Quality Metrics
+Code Quality:
+	• Swift code follows Apple style guidelines
+	• Python code follows PEP 8
+	• Code coverage >80% for critical paths
+	• No SwiftLint warnings
+	• Documentation for all public APIs
+Model Quality:
+	• All accuracy targets met
+	• Ablation studies validate architecture choices
+	• Statistical significance confirmed
+	• Reproducible results (fixed seeds)
+	• Performance documented in model cards
+App Quality:
+	• Zero critical bugs at launch
+	• <10 minor bugs at launch
+	• All core features fully functional
+	• Smooth performance on target devices
+	• Accessibility standards met
+
+14. MAINTENANCE & SUPPORT
+14.1 Post-Launch Maintenance
+14.1.1 Regular Updates
+Monthly (Months 1-3):
+	• Bug fixes
+	• Performance improvements
+	• Minor feature tweaks
+	• User feedback implementation
+Quarterly (Month 3+):
+	• Model updates (improved accuracy)
+	• New features
+	• Major bug fixes
+	• iOS version compatibility
+Annually:
+	• Major version update
+	• Architecture improvements
+	• New detection capabilities
+	• Platform expansion
+14.1.2 Model Updates
+Update Cadence:
+	• Initial: Every 3 months
+	• Mature: Every 6 months
+	• Emergency: As needed for critical failures
+Update Process:
+	1. Retrain on new data
+	2. Evaluate on benchmarks
+	3. Test on real-world samples
+	4. Beta test with users
+	5. Deploy via OTA
+	6. Monitor performance
+Triggers for Updates:
+	• New AI generator released (DALL-E 4, etc.)
+	• Accuracy degradation detected
+	• User reports of failures
+	• New manipulation techniques discovered
+	• Performance improvements available
+14.2 User Support
+14.2.1 Support Channels
+In-App:
+	• FAQ section
+	• Help documentation
+	• Tutorial videos
+	• Contextual tips
+External:
+	• Email support (support@truthlens.app)
+	• GitHub issues (for technical users)
+	• Twitter/X for announcements
+	• Reddit community (unofficial)
+Response Times:
+	• Critical bugs: 24 hours
+	• Important issues: 3 days
+	• Feature requests: 1 week
+	• General questions: 1 week
+14.2.2 Common Issues
+Anticipated Support Needs:
+	1. "Why was this image flagged as fake?" → Explain confidence thresholds
+	2. "The app says real but I know it's fake" → Explain limitations, encourage reporting
+	3. "Can you analyze this specific image for me?" → Direct to app, no manual service
+	4. "How do I interpret the heatmap?" → Link to tutorial
+	5. "Does this work on videos?" → Explain current limitations, future plans
+	6. "My result was wrong, can you fix it?" → Encourage reporting, explain model updates
+14.3 Monitoring & Analytics
+14.3.1 On-Device Analytics (Privacy-Preserving)
+Anonymous Usage Metrics:
+	• Total analyses performed (no image data)
+	• Average confidence scores (aggregated)
+	• Feature usage frequency (which detection type, settings)
+	• Error rates (crashes, failures)
+	• Performance metrics (inference time, memory)
+Implementation:
+	• On-device aggregation only
+	• No individual user tracking
+	• No personally identifiable information
+	• Optional (user can disable)
+	• Transparent about what's collected
+14.3.2 App Store Metrics
+Available from App Store Connect:
+	• Downloads by country
+	• Active devices
+	• Sessions per device
+	• Crashes and crash-free percentage
+	• App Store ratings and reviews
+	• Search terms driving downloads
+14.3.3 Model Performance Monitoring
+Continuous Evaluation:
+	• Maintain test set of verified images
+	• Evaluate new models before deployment
+	• Track accuracy trends over time
+	• Monitor for distribution shift
+	• User feedback on incorrect results
+
+15. FUTURE ENHANCEMENTS
+15.1 Version 1.1 (Month 3-4)
+Features:
+	• Real-time camera scanning (detect before capture)
+	• iPad optimization (larger UI, split view)
+	• Share extension (analyze from Photos app)
+	• Home screen widget (quick access)
+	• Improved heatmap visualization (multiple modes)
+	• Export to more formats (JSON, Markdown)
+Improvements:
+	• Faster inference (Metal optimizations)
+	• Better low-light handling
+	• Enhanced batch processing UI
+	• More detailed explanations
+15.2 Version 2.0 (Month 6-9)
+Major Features:
+	• Video deepfake detection (frame-by-frame analysis)
+	• Audio deepfake detection (voice cloning detection)
+	• Generator attribution (identify which AI created it)
+	• Timeline view (track when image was likely created)
+	• Comparison mode (compare two images side-by-side)
+	• Advanced batch reports (PDF with charts, statistics)
+Technical Improvements:
+	• Model compression (reduce to 15MB each)
+	• Faster inference (<100ms)
+	• Support for 4K+ images
+	• Background processing
+	• Siri shortcuts integration
+15.3 Version 3.0 (Month 12+)
+Platform Expansion:
+	• Web version (browser-based, WASM)
+	• API for developers (rate-limited free tier)
+	• Browser extension (Safari, Chrome)
+	• macOS app (native Mac version)
+	• Android version (if resources allow)
+Advanced Features:
+	• Social media integration (analyze directly from Twitter, Instagram)
+	• Collaborative verification (optional community voting)
+	• Adversarial robustness (defend against evasion attacks)
+	• Explainable AI (better articulation of detection reasoning)
+	• Multi-modal detection (image + text + metadata)
+15.4 Research Extensions
+Paper 3: Video Temporal Analysis
+	• "Temporal Consistency for Deepfake Video Detection"
+	• Focus on frame-to-frame inconsistencies
+	• Target: ICCV/ECCV
+Paper 4: Adversarial Robustness
+	• "Adversarial Robustness of Mobile Deepfake Detectors"
+	• Evaluate against evasion attacks
+	• Target: USENIX Security, ACM CCS
+Paper 5: Multi-Modal Detection
+	• "Multi-Modal Synthetic Media Detection: Beyond Visual Analysis"
+	• Combine image, audio, text, metadata
+	• Target: NeurIPS, ICLR
+Paper 6: Continual Learning
+	• "Continual Learning for Evolving Synthetic Media Detection"
+	• Adapt to new generators without catastrophic forgetting
+	• Target: CVPR, ICLR
+
+16. CONCLUSION
+16.1 PRD Summary
+This PRD defines a comprehensive 2-month project to build TruthLens, a privacy-first iOS app with dual on-device AI models for detecting deepfakes and AI-generated images. The product combines:
+	1. Cutting-edge research suitable for top-tier conference publication (CVPR/ICCV)
+	2. Production-quality engineering with <50MB models, <200ms inference, 100% offline
+	3. User-centric design emphasizing privacy, simplicity, and educational value
+	4. Research impact through open model release and reproducible results
+16.2 Core Differentiators
+vs. Existing Solutions:
+	• ✅ Only on-device solution (competitors are cloud-based)
+	• ✅ Dual specialized models (most tools focus on one type)
+	• ✅ Research-backed (novel architectures, published results)
+	• ✅ Free and privacy-first (no monetization of user data)
+	• ✅ Regular updates (adapt to new AI generators)
+16.3 Success Definition
+Technical Success:
+	• Models achieve >95%/92% accuracy on benchmarks
+	• App runs smoothly on iPhone 11+
+	• Zero critical bugs at launch
+Product Success:
+	• 10,000+ downloads in Month 1
+		○ 4.5 App Store rating
+	• Positive press coverage
+Research Success:
+	• Papers accepted to CVPR/ICCV
+	• 500+ GitHub stars
+	• Community adoption
+16.4 Critical Path
+The project's success depends on:
+	1. Model training completes on time (Weeks 3-5)
+	2. Accuracy targets are met (>95%/92%)
+	3. CoreML conversion maintains accuracy (Week 6)
+	4. iOS development stays on schedule (Weeks 7-8)
+	5. App Store approval (Week 11-12)
+16.5 Go/No-Go Decision Points
+Week 5 Checkpoint:
+	• If Model A accuracy <93% → Extend training or simplify architecture
+	• If Model B accuracy <88% → Reduce generator diversity or extend training
+Week 6 Checkpoint:
+	• If CoreML models >60MB → Aggressive compression or feature reduction
+	• If inference >300ms → Reduce model complexity or input resolution
+Week 9 Checkpoint:
+	• If critical bugs remain → Delay launch
+	• If beta feedback negative → Major revisions needed
+16.6 Final Notes
+This PRD represents a highly ambitious but achievable 2-month project. Success requires:
+	• Ruthless prioritization (MVP only, no scope creep)
+	• Daily progress (consistent execution)
+	• Flexibility (adjust when needed)
+	• Quality focus (better to delay than ship broken)
+The combination of research contribution, practical utility, and privacy focus creates a unique value proposition in the deepfake detection space.
+
+DOCUMENT APPROVAL
+Status: ✅ FINAL - APPROVED FOR DEVELOPMENT
+Next Steps:
+	1. Review and confirm understanding of all requirements
+	2. Set up development environment (Week 1, Day 1)
+	3. Begin Phase 1: Foundation
+	4. Weekly progress reviews against milestones
+	5. Adjust timeline if needed (communicate early)
+Questions or Clarifications: Contact: [Your Contact Information]
+
+END OF PRD
+Document Version: 1.0
+Last Updated: November 2025
+Total Pages: [Generated as needed]
+
+This PRD is comprehensive and ready for development. It covers every aspect of the product from technical specifications to go-to-market strategy. You now have a complete blueprint to build TruthLens. Good luck with your project! 🚀
