@@ -38,6 +38,11 @@
   /* 3D Depth Layers */
   --layer-gradient-1: linear-gradient(135deg, rgba(97, 168, 255, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
   --layer-gradient-2: linear-gradient(225deg, rgba(97, 168, 255, 0.03) 0%, rgba(0, 0, 0, 0) 100%);
+
+  /* Spacing System - Apple-like Spaciousness */
+  --space-section: 128px;
+  --space-container: 160px;
+  --space-card-gap: 32px;
 }
 
 /* Light Mode Theme */
@@ -69,6 +74,11 @@
     /* 3D Depth Layers for light mode */
     --layer-gradient-1: linear-gradient(135deg, rgba(97, 168, 255, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
     --layer-gradient-2: linear-gradient(225deg, rgba(97, 168, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+
+    /* Spacing System - Apple-like Spaciousness */
+    --space-section: 128px;
+    --space-container: 160px;
+    --space-card-gap: 32px;
   }
 }
 
@@ -232,4 +242,219 @@ html {
   transform: scale(1.02);
   background: var(--surface-secondary);
   box-shadow: var(--shadow-soft);
+}
+
+/* ==========================================
+   SIGNATURE UI - PREMIUM GLASSMORPHISM
+   ========================================== */
+
+.glass-premium {
+  background: rgba(28, 28, 30, 0.6);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.glass-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(97, 168, 255, 0.3),
+    transparent 50%,
+    rgba(97, 168, 255, 0.1)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* ==========================================
+   GRADIENT SHADOW BACKGROUNDS
+   ========================================== */
+
+.gradient-shadow-bg {
+  position: relative;
+}
+
+.gradient-shadow-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 20% 30%,
+    rgba(97, 168, 255, 0.08) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gradient-shadow-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 80% 70%,
+    rgba(97, 168, 255, 0.05) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==========================================
+   FLOATING ANIMATIONS
+   ========================================== */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.floating-icon {
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.1;
+}
+
+/* ==========================================
+   GRADIENT TEXT ANIMATION
+   ========================================== */
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.gradient-text-animated {
+  background: linear-gradient(
+    90deg,
+    #61A8FF,
+    #ffffff,
+    #61A8FF
+  );
+  background-size: 200% auto;
+  animation: gradient-shift 3s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ==========================================
+   ACCORDION ANIMATIONS
+   ========================================== */
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-accordion-up {
+  animation: accordion-up 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================
+   FOCUS STATES - ACCESSIBILITY
+   ========================================== */
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+  border-radius: inherit;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN - MOBILE OPTIMIZATIONS
+   ========================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --space-section: 64px;
+  }
+
+  .glass-card,
+  .glass-card-elevated,
+  .glass-premium {
+    padding: 24px;
+  }
+}
+
+/* ==========================================
+   TOUCH INTERACTIONS
+   ========================================== */
+
+@media (hover: none) {
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .smooth-hover:hover {
+    transform: none;
+  }
+
+  .smooth-scale:hover {
+    transform: none;
+  }
 }
