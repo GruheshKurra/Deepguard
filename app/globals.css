@@ -1,56 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 /* Satoshi font loaded via CDN in layout.tsx */
 
+/* ==========================================
+   SIGNATURE UI - ADAPTIVE THEME SYSTEM
+   ========================================== */
 
 :root {
-  /* Apple Dark Mode Colors */
+  /* Dark Mode (Default) - Signature UI Colors */
   --background: #000000;
+  --background-elevated: #0a0a0a;
   --surface: #1c1c1e;
   --surface-secondary: #2c2c2e;
   --surface-tertiary: #3a3a3c;
+  --surface-glass: rgba(28, 28, 30, 0.7);
 
   --text-primary: #ffffff;
   --text-secondary: #98989d;
   --text-tertiary: #636366;
 
-  --primary: #0a84ff;
+  /* Signature UI Primary Colors */
+  --primary: #61A8FF; /* Light Blue Accent */
+  --accent-blue: #61A8FF;
   --success: #30d158;
   --warning: #ffd60a;
   --error: #ff453a;
 
-  --shadow: rgba(0, 0, 0, 0.5);
+  /* Glassmorphism & Depth */
+  --glass-backdrop: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.12);
+  --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.18);
+  --shadow-elevation: 0 12px 48px rgba(0, 0, 0, 0.24);
+  --shadow-glow: 0 0 32px rgba(97, 168, 255, 0.12);
+
+  /* 3D Depth Layers */
+  --layer-gradient-1: linear-gradient(135deg, rgba(97, 168, 255, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+  --layer-gradient-2: linear-gradient(225deg, rgba(97, 168, 255, 0.03) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Light Mode Theme */
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #FFFFFF;
+    --background-elevated: #F5F5F7;
+    --surface: #FFFFFF;
+    --surface-secondary: #F5F5F7;
+    --surface-tertiary: #E8E8ED;
+    --surface-glass: rgba(255, 255, 255, 0.7);
+
+    --text-primary: #000000;
+    --text-secondary: #6e6e73;
+    --text-tertiary: #86868b;
+
+    /* Keep same accent colors */
+    --primary: #61A8FF;
+    --accent-blue: #61A8FF;
+
+    /* Adjusted shadows for light mode */
+    --glass-backdrop: rgba(0, 0, 0, 0.02);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.06);
+    --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.08);
+    --shadow-elevation: 0 12px 48px rgba(0, 0, 0, 0.12);
+    --shadow-glow: 0 0 32px rgba(97, 168, 255, 0.15);
+
+    /* 3D Depth Layers for light mode */
+    --layer-gradient-1: linear-gradient(135deg, rgba(97, 168, 255, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
+    --layer-gradient-2: linear-gradient(225deg, rgba(97, 168, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-elevated: var(--background-elevated);
   --color-surface: var(--surface);
   --color-surface-secondary: var(--surface-secondary);
   --color-surface-tertiary: var(--surface-tertiary);
+  --color-surface-glass: var(--surface-glass);
 
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-tertiary: var(--text-tertiary);
 
   --color-primary: var(--primary);
+  --color-accent-blue: var(--accent-blue);
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-error: var(--error);
 
-  /* Apple San Francisco Font */
-  /* Prefer Satoshi when available, fall back to system stack */
-  --font-sans: 'Satoshi', -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* Signature UI Typography - Satoshi Primary, Poppins Fallback */
+  --font-sans: 'Satoshi', 'Poppins', -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* Border Radius - Signature UI Standard */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-capsule: 9999px;
 }
 
 body {
   background: var(--background);
   color: var(--text-primary);
   font-family: var(--font-sans);
+  font-weight: 400; /* Signature UI body weight */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* ==========================================
+   SIGNATURE UI - GLASSMORPHISM UTILITIES
+   ========================================== */
+
+.glass-card {
+  background: var(--surface-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+}
+
+.glass-card-elevated {
+  background: var(--surface-glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-medium);
+}
+
+/* ==========================================
+   SIGNATURE UI - 3D DEPTH & LAYERS
+   ========================================== */
+
+.depth-layer {
+  position: relative;
+  overflow: hidden;
+}
+
+.depth-layer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--layer-gradient-1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.depth-layer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--layer-gradient-2);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==========================================
+   SIGNATURE UI - SMOOTH ANIMATIONS
+   ========================================== */
+
+.smooth-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smooth-hover:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: var(--shadow-medium);
+}
+
+.smooth-scale {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smooth-scale:hover {
+  transform: scale(1.02);
+}
+
+.fade-scale-enter {
+  animation: fadeScaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================================
+   SIGNATURE UI - BUTTON ENHANCEMENTS
+   ========================================== */
+
+.btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+  padding: 12px 32px;
+  border-radius: var(--radius-capsule);
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-medium), var(--shadow-glow);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text-primary);
+  padding: 12px 32px;
+  border-radius: var(--radius-capsule);
+  border: 1px solid var(--glass-border);
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-secondary:hover {
+  transform: scale(1.02);
+  background: var(--surface-secondary);
+  box-shadow: var(--shadow-soft);
 }
