@@ -1,27 +1,23 @@
 import {
-  Navigation,
-  HeroSection,
-  FeaturesGrid,
-  StatsSection,
-  PrivacySection,
-  DetailSection,
-  FAQSection,
-  Footer,
-} from '@/components/sections';
+  ClerkNavigation,
+  ClerkHero,
+  ClerkFeatures,
+  ClerkStats,
+  ClerkCTA,
+  ClerkFooter,
+} from '@/components/landing';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-text-primary">
-      <Navigation />
+    <div className="min-h-screen bg-black text-white">
+      <ClerkNavigation />
       <main id="main">
-        <HeroSection />
-        <FeaturesGrid />
-        <StatsSection />
-        <PrivacySection />
-        <DetailSection />
-        <FAQSection />
+        <ClerkHero />
+        <ClerkFeatures />
+        <ClerkStats />
+        <ClerkCTA />
       </main>
-      <Footer />
+      <ClerkFooter />
     </div>
   );
 }
