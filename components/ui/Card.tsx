@@ -16,21 +16,21 @@ export const Card: React.FC<CardProps> = ({
   featured = false,
   hoverable = true,
 }) => {
-  const baseStyles = 'rounded-xl';
+  const baseStyles = 'rounded-lg border';
 
   const variantStyles = {
-    glass: 'glass-card p-8',
-    elevated: 'glass-card-elevated p-8',
-    feature: 'glass-card p-10',
-    premium: 'glass-premium p-8',
+    glass: 'bg-surface/50 border-surface-tertiary/30 backdrop-blur-sm p-6',
+    elevated: 'bg-surface border-surface-tertiary/50 shadow-soft p-6',
+    feature: 'bg-surface border-surface-tertiary/40 p-8',
+    premium: 'bg-gradient-to-br from-surface to-surface-secondary border-[#6C47FF]/20 shadow-[0_0_24px_rgba(108,71,255,0.1)] p-8',
   };
 
   const featuredStyles = featured
-    ? 'lg:col-span-2 bg-gradient-to-br from-surface/90 to-surface/70 border-accent-blue/30 p-12'
+    ? 'lg:col-span-2 bg-gradient-to-br from-[#6C47FF]/10 to-surface border-[#6C47FF]/30 p-10'
     : '';
 
   const hoverStyles = hoverable
-    ? 'transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_20px_40px_rgba(97,168,255,0.1)]'
+    ? 'transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.2)]'
     : '';
 
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${featuredStyles} ${hoverStyles} ${className}`;

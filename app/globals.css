@@ -8,77 +8,87 @@
    ========================================== */
 
 :root {
-  /* Dark Mode (Default) - Signature UI Colors */
-  --background: #000000;
-  --background-elevated: #0a0a0a;
-  --surface: #1c1c1e;
-  --surface-secondary: #2c2c2e;
-  --surface-tertiary: #3a3a3c;
-  --surface-glass: rgba(28, 28, 30, 0.7);
+  /* Dark Mode (Default) - Clerk-inspired Colors */
+  --background: #030712; /* gray-950 */
+  --background-elevated: #0f172a;
+  --surface: #1e293b;
+  --surface-secondary: #334155;
+  --surface-tertiary: #475569;
+  --surface-glass: rgba(30, 41, 59, 0.7);
 
-  --text-primary: #ffffff;
-  --text-secondary: #98989d;
-  --text-tertiary: #636366;
+  --text-primary: #f8fafc; /* gray-50 */
+  --text-secondary: #cbd5e1; /* gray-300 */
+  --text-tertiary: #94a3b8; /* gray-400 */
 
-  /* Signature UI Primary Colors */
-  --primary: #61A8FF; /* Light Blue Accent */
-  --accent-blue: #61A8FF;
-  --success: #30d158;
-  --warning: #ffd60a;
-  --error: #ff453a;
+  /* Clerk-style Accent Colors */
+  --primary: #6C47FF; /* Purple primary */
+  --accent-purple: #6C47FF;
+  --accent-cyan: #38DAFD;
+  --accent-yellow: #FFF963;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
 
   /* Glassmorphism & Depth */
-  --glass-backdrop: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.12);
-  --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.18);
-  --shadow-elevation: 0 12px 48px rgba(0, 0, 0, 0.24);
-  --shadow-glow: 0 0 32px rgba(97, 168, 255, 0.12);
+  --glass-backdrop: rgba(248, 250, 252, 0.05);
+  --glass-border: rgba(248, 250, 252, 0.1);
+  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.15);
+  --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow-elevation: 0 12px 48px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 32px rgba(108, 71, 255, 0.15);
 
-  /* 3D Depth Layers */
-  --layer-gradient-1: linear-gradient(135deg, rgba(97, 168, 255, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
-  --layer-gradient-2: linear-gradient(225deg, rgba(97, 168, 255, 0.03) 0%, rgba(0, 0, 0, 0) 100%);
+  /* 3D Depth Layers - Clerk gradient style */
+  --layer-gradient-1: linear-gradient(135deg, rgba(108, 71, 255, 0.08) 0%, rgba(0, 0, 0, 0) 100%);
+  --layer-gradient-2: linear-gradient(225deg, rgba(56, 218, 253, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
 
-  /* Spacing System - Apple-like Spaciousness */
-  --space-section: 128px;
-  --space-container: 160px;
-  --space-card-gap: 32px;
+  /* Clerk Hero Gradient */
+  --hero-gradient: radial-gradient(circle at 50% 20%, rgba(108, 71, 255, 0.2) 0%, rgba(56, 218, 253, 0.1) 25%, rgba(255, 249, 99, 0.05) 50%, transparent 70%);
+
+  /* Spacing System - Clerk-like Spaciousness */
+  --space-section: 96px;
+  --space-container: 80rem; /* max-w-[80rem] */
+  --space-card-gap: 24px;
 }
 
 /* Light Mode Theme */
 @media (prefers-color-scheme: light) {
   :root {
-    --background: #FFFFFF;
-    --background-elevated: #F5F5F7;
-    --surface: #FFFFFF;
-    --surface-secondary: #F5F5F7;
-    --surface-tertiary: #E8E8ED;
-    --surface-glass: rgba(255, 255, 255, 0.7);
+    --background: #f9fafb; /* gray-50 */
+    --background-elevated: #ffffff;
+    --surface: #ffffff;
+    --surface-secondary: #f3f4f6; /* gray-100 */
+    --surface-tertiary: #e5e7eb; /* gray-200 */
+    --surface-glass: rgba(255, 255, 255, 0.8);
 
-    --text-primary: #000000;
-    --text-secondary: #6e6e73;
-    --text-tertiary: #86868b;
+    --text-primary: #111827; /* gray-900 */
+    --text-secondary: #4b5563; /* gray-600 */
+    --text-tertiary: #6b7280; /* gray-500 */
 
     /* Keep same accent colors */
-    --primary: #61A8FF;
-    --accent-blue: #61A8FF;
+    --primary: #6C47FF;
+    --accent-purple: #6C47FF;
+    --accent-cyan: #38DAFD;
+    --accent-yellow: #FFF963;
 
     /* Adjusted shadows for light mode */
     --glass-backdrop: rgba(0, 0, 0, 0.02);
-    --glass-border: rgba(0, 0, 0, 0.08);
-    --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.06);
-    --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.08);
-    --shadow-elevation: 0 12px 48px rgba(0, 0, 0, 0.12);
-    --shadow-glow: 0 0 32px rgba(97, 168, 255, 0.15);
+    --glass-border: rgba(0, 0, 0, 0.06);
+    --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.04);
+    --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.06);
+    --shadow-elevation: 0 12px 48px rgba(0, 0, 0, 0.08);
+    --shadow-glow: 0 0 32px rgba(108, 71, 255, 0.1);
 
     /* 3D Depth Layers for light mode */
-    --layer-gradient-1: linear-gradient(135deg, rgba(97, 168, 255, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
-    --layer-gradient-2: linear-gradient(225deg, rgba(97, 168, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+    --layer-gradient-1: linear-gradient(135deg, rgba(108, 71, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+    --layer-gradient-2: linear-gradient(225deg, rgba(56, 218, 253, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
 
-    /* Spacing System - Apple-like Spaciousness */
-    --space-section: 128px;
-    --space-container: 160px;
-    --space-card-gap: 32px;
+    /* Clerk Hero Gradient - Light Mode */
+    --hero-gradient: radial-gradient(circle at 50% 20%, rgba(108, 71, 255, 0.08) 0%, rgba(56, 218, 253, 0.05) 25%, rgba(255, 249, 99, 0.03) 50%, transparent 70%);
+
+    /* Spacing System - Clerk-like Spaciousness */
+    --space-section: 96px;
+    --space-container: 80rem;
+    --space-card-gap: 24px;
   }
 }
 
@@ -95,20 +105,23 @@
   --color-text-tertiary: var(--text-tertiary);
 
   --color-primary: var(--primary);
-  --color-accent-blue: var(--accent-blue);
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-accent-yellow: var(--accent-yellow);
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-error: var(--error);
 
-  /* Signature UI Typography - Satoshi Primary, Poppins Fallback */
-  --font-sans: 'Satoshi', 'Poppins', -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* Clerk-inspired Typography */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-  /* Border Radius - Signature UI Standard */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-  --radius-capsule: 9999px;
+  /* Border Radius - Clerk Standard */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-full: 9999px;
 }
 
 body {
@@ -278,7 +291,7 @@ html {
 }
 
 /* ==========================================
-   GRADIENT SHADOW BACKGROUNDS
+   GRADIENT SHADOW BACKGROUNDS - CLERK STYLE
    ========================================== */
 
 .gradient-shadow-bg {
@@ -290,9 +303,9 @@ html {
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    circle at 20% 30%,
-    rgba(97, 168, 255, 0.08) 0%,
-    transparent 50%
+    circle at 30% 20%,
+    rgba(108, 71, 255, 0.15) 0%,
+    transparent 40%
   );
   pointer-events: none;
   z-index: 0;
@@ -303,12 +316,41 @@ html {
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    circle at 80% 70%,
-    rgba(97, 168, 255, 0.05) 0%,
-    transparent 50%
+    circle at 70% 80%,
+    rgba(56, 218, 253, 0.1) 0%,
+    transparent 40%
   );
   pointer-events: none;
   z-index: 0;
+}
+
+/* Clerk Hero Gradient Background */
+.clerk-hero-gradient {
+  position: relative;
+  background: var(--hero-gradient);
+}
+
+/* Multi-color gradient effect like Clerk's hero */
+.clerk-multi-gradient {
+  background: radial-gradient(
+    ellipse at 50% 20%,
+    rgba(108, 71, 255, 0.2) 0%,
+    rgba(255, 249, 99, 0.08) 20%,
+    rgba(56, 218, 253, 0.12) 40%,
+    rgba(108, 72, 246, 0.08) 60%,
+    transparent 80%
+  );
+  background-size: 200% 200%;
+  animation: gradient-shift-slow 15s ease infinite;
+}
+
+@keyframes gradient-shift-slow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* ==========================================
@@ -330,7 +372,7 @@ html {
 }
 
 /* ==========================================
-   GRADIENT TEXT ANIMATION
+   GRADIENT TEXT ANIMATION - CLERK STYLE
    ========================================== */
 
 @keyframes gradient-shift {
@@ -345,12 +387,25 @@ html {
 .gradient-text-animated {
   background: linear-gradient(
     90deg,
-    #61A8FF,
-    #ffffff,
-    #61A8FF
+    #6C47FF,
+    #38DAFD,
+    #FFF963,
+    #6C47FF
   );
   background-size: 200% auto;
-  animation: gradient-shift 3s ease infinite;
+  animation: gradient-shift 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Clerk-style purple-cyan gradient text */
+.clerk-gradient-text {
+  background: linear-gradient(
+    135deg,
+    #6C47FF 0%,
+    #38DAFD 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

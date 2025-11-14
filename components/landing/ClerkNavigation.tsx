@@ -24,7 +24,7 @@ export const ClerkNavigation: React.FC = () => {
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-black/80 backdrop-blur-xl border-b border-white/10'
+          ? 'bg-[#030712]/90 backdrop-blur-xl border-b border-surface-tertiary/20 shadow-sm'
           : 'bg-transparent'
       }`}
     >
@@ -32,35 +32,35 @@ export const ClerkNavigation: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#61A8FF] to-[#5098EF] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <Shield className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center group-hover:scale-105 transition-all duration-300 shadow-[0_0_16px_rgba(108,71,255,0.3)]">
+              <Shield className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-white">TruthLens</span>
+            <span className="text-xl font-semibold text-text-primary tracking-tight">TruthLens</span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             <a
               href="#features"
-              className="text-gray-300 hover:text-white transition-colors duration-200"
+              className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm font-medium"
             >
               Features
             </a>
             <a
               href="#how-it-works"
-              className="text-gray-300 hover:text-white transition-colors duration-200"
+              className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm font-medium"
             >
               How It Works
             </a>
             <a
               href="#pricing"
-              className="text-gray-300 hover:text-white transition-colors duration-200"
+              className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm font-medium"
             >
               Pricing
             </a>
             <a
               href="#faq"
-              className="text-gray-300 hover:text-white transition-colors duration-200"
+              className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm font-medium"
             >
               FAQ
             </a>
@@ -68,7 +68,7 @@ export const ClerkNavigation: React.FC = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <button className="px-6 py-2.5 bg-[#61A8FF] hover:bg-[#5098EF] text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(97,168,255,0.3)]">
+            <button className="px-5 py-2 bg-[#6C47FF] hover:bg-[#5a3ad6] text-white font-medium rounded-lg transition-all duration-200 hover:shadow-[0_8px_24px_rgba(108,71,255,0.3)] text-sm">
               Download
             </button>
           </div>
@@ -89,38 +89,38 @@ export const ClerkNavigation: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden mt-6 pb-6 border-t border-white/10 pt-6"
+            className="md:hidden mt-6 pb-6 border-t border-surface-tertiary/20 pt-6"
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
               <a
                 href="#features"
-                className="text-gray-300 hover:text-white transition-colors duration-200 py-2"
+                className="text-text-secondary hover:text-text-primary transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-surface-secondary/50"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Features
               </a>
               <a
                 href="#how-it-works"
-                className="text-gray-300 hover:text-white transition-colors duration-200 py-2"
+                className="text-text-secondary hover:text-text-primary transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-surface-secondary/50"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 How It Works
               </a>
               <a
                 href="#pricing"
-                className="text-gray-300 hover:text-white transition-colors duration-200 py-2"
+                className="text-text-secondary hover:text-text-primary transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-surface-secondary/50"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Pricing
               </a>
               <a
                 href="#faq"
-                className="text-gray-300 hover:text-white transition-colors duration-200 py-2"
+                className="text-text-secondary hover:text-text-primary transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-surface-secondary/50"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 FAQ
               </a>
-              <button className="mt-4 w-full px-6 py-3 bg-[#61A8FF] hover:bg-[#5098EF] text-white font-semibold rounded-lg transition-all duration-300">
+              <button className="mt-4 w-full px-5 py-2.5 bg-[#6C47FF] hover:bg-[#5a3ad6] text-white font-medium rounded-lg transition-all duration-200 hover:shadow-[0_8px_24px_rgba(108,71,255,0.3)]">
                 Download
               </button>
             </div>
