@@ -53,22 +53,22 @@ export const ClerkFooter: React.FC = () => {
             <h3 className="text-text-primary font-semibold mb-4 text-sm">Product</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#features" className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm">
-                  Features
+                <a href="/how-it-works" className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm">
+                  How It Works
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm">
+                <a href="/pricing" className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm">
                   Pricing
                 </a>
               </li>
               <li>
-                <a href="#download" className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm">
+                <a href="/" className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm">
                   Download
                 </a>
               </li>
               <li>
-                <a href="#faq" className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm">
+                <a href="/faq" className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm">
                   FAQ
                 </a>
               </li>
