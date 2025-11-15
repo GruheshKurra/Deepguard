@@ -41,28 +41,28 @@ export const ClerkNavigation: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             <a
-              href="#features"
-              className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm font-medium"
-            >
-              Features
-            </a>
-            <a
-              href="#how-it-works"
+              href="/how-it-works"
               className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm font-medium"
             >
               How It Works
             </a>
             <a
-              href="#pricing"
+              href="/pricing"
               className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm font-medium"
             >
               Pricing
             </a>
             <a
-              href="#faq"
+              href="/faq"
               className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm font-medium"
             >
               FAQ
+            </a>
+            <a
+              href="/research"
+              className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm font-medium"
+            >
+              Research
             </a>
           </div>
 
@@ -93,32 +93,32 @@ export const ClerkNavigation: React.FC = () => {
           >
             <div className="flex flex-col gap-2">
               <a
-                href="#features"
-                className="text-text-secondary hover:text-text-primary transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-surface-secondary/50"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Features
-              </a>
-              <a
-                href="#how-it-works"
+                href="/how-it-works"
                 className="text-text-secondary hover:text-text-primary transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-surface-secondary/50"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 How It Works
               </a>
               <a
-                href="#pricing"
+                href="/pricing"
                 className="text-text-secondary hover:text-text-primary transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-surface-secondary/50"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Pricing
               </a>
               <a
-                href="#faq"
+                href="/faq"
                 className="text-text-secondary hover:text-text-primary transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-surface-secondary/50"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 FAQ
+              </a>
+              <a
+                href="/research"
+                className="text-text-secondary hover:text-text-primary transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-surface-secondary/50"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Research
               </a>
               <button className="mt-4 w-full px-5 py-2.5 bg-[#6C47FF] hover:bg-[#5a3ad6] text-white font-medium rounded-lg transition-all duration-200 hover:shadow-[0_8px_24px_rgba(108,71,255,0.3)]">
                 Download
