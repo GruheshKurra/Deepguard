@@ -6,10 +6,10 @@ import { Shield, Github, Mail, ExternalLink } from 'lucide-react';
 export const ClerkFooter: React.FC = () => {
   return (
     <footer className="relative bg-[#030712] border-t border-surface-tertiary/20">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-10 sm:mb-12">
           {/* Brand Column */}
-          <div className="col-span-1 md:col-span-2">
+          <div className="col-span-1 sm:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center shadow-[0_0_16px_rgba(108,71,255,0.3)]">
                 <Shield className="w-5 h-5 text-white" />

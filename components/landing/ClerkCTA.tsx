@@ -6,7 +6,7 @@ import { ArrowRight, Apple } from 'lucide-react';
 
 export const ClerkCTA: React.FC = () => {
   return (
-    <section className="relative py-24 px-6 overflow-hidden">
+    <section className="relative py-16 md:py-24 px-4 sm:px-6 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#030712] via-[#0f172a] to-[#030712]" />
 
@@ -20,14 +20,14 @@ export const ClerkCTA: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative p-10 md:p-14 rounded-2xl bg-gradient-to-br from-[#6C47FF]/15 via-[#38DAFD]/10 to-transparent border border-surface-tertiary/40 backdrop-blur-xl overflow-hidden"
+          className="relative p-6 sm:p-8 md:p-10 lg:p-14 rounded-2xl bg-gradient-to-br from-[#6C47FF]/15 via-[#38DAFD]/10 to-transparent border border-surface-tertiary/40 backdrop-blur-xl overflow-hidden"
         >
           {/* Shine Effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#6C47FF]/5 to-transparent -skew-x-12" />
 
           {/* Content */}
           <div className="relative z-10 text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-5 tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 sm:mb-5 tracking-tight leading-tight">
               Start detecting deepfakes
               <br />
               <span className="bg-gradient-to-r from-[#6C47FF] via-[#38DAFD] to-[#FFF963] bg-clip-text text-transparent">
@@ -35,7 +35,7 @@ export const ClerkCTA: React.FC = () => {
               </span>
             </h2>
 
-            <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-text-secondary mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
               Download DeepGuard for free and experience the power of on-device
               AI detection. Analyze images, videos, and live camera feeds with total privacy.
             </p>
@@ -46,7 +46,7 @@ export const ClerkCTA: React.FC = () => {
                 href="https://apps.apple.com/app/deepguard"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group px-8 py-4 bg-white hover:bg-gray-50 text-black font-medium rounded-lg transition-all duration-200 flex items-center gap-3 shadow-[0_8px_24px_rgba(255,255,255,0.15)] hover:shadow-[0_8px_32px_rgba(255,255,255,0.2)]"
+                className="group px-5 sm:px-8 py-3 sm:py-4 bg-white hover:bg-gray-50 text-black font-medium rounded-lg transition-all duration-200 flex items-center gap-2 sm:gap-3 shadow-[0_8px_24px_rgba(255,255,255,0.15)] hover:shadow-[0_8px_32px_rgba(255,255,255,0.2)]"
               >
                 <Apple className="w-6 h-6" />
                 <div className="text-left">
@@ -60,7 +60,7 @@ export const ClerkCTA: React.FC = () => {
                 href="https://github.com/GruheshKurra/deepguard-ios"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 bg-surface/50 hover:bg-surface text-text-primary font-medium rounded-lg transition-all duration-200 border border-surface-tertiary/50 hover:border-surface-tertiary backdrop-blur-xl"
+                className="px-5 sm:px-8 py-3 sm:py-4 bg-surface/50 hover:bg-surface text-text-primary font-medium rounded-lg transition-all duration-200 border border-surface-tertiary/50 hover:border-surface-tertiary backdrop-blur-xl text-sm sm:text-base"
               >
                 View Source Code
               </a>

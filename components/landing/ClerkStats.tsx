@@ -28,7 +28,7 @@ const stats = [
 
 export const ClerkStats: React.FC = () => {
   return (
-    <section className="relative py-24 px-6 overflow-hidden">
+    <section className="relative py-16 md:py-24 px-4 sm:px-6 overflow-hidden">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#030712] via-[#0f172a] to-[#030712]" />
 
@@ -44,17 +44,17 @@ export const ClerkStats: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
             Trusted by privacy-conscious users
           </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed px-2">
             Research-grade performance meets mobile convenience.
             Built with cutting-edge Core ML technology.
           </p>
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -65,16 +65,16 @@ export const ClerkStats: React.FC = () => {
               className="relative group"
             >
               {/* Card */}
-              <div className="relative p-8 rounded-lg bg-surface/50 border border-surface-tertiary/30 backdrop-blur-sm text-center transition-all duration-300 hover:bg-surface hover:border-[#6C47FF]/40 hover:shadow-[0_8px_24px_rgba(108,71,255,0.15)]">
+              <div className="relative p-4 sm:p-6 md:p-8 rounded-lg bg-surface/50 border border-surface-tertiary/30 backdrop-blur-sm text-center transition-all duration-300 hover:bg-surface hover:border-[#6C47FF]/40 hover:shadow-[0_8px_24px_rgba(108,71,255,0.15)]">
                 {/* Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#6C47FF]/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="text-4xl md:text-5xl font-bold bg-gradient-to-br from-text-primary to-text-secondary bg-clip-text text-transparent mb-2">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-br from-text-primary to-text-secondary bg-clip-text text-transparent mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-base font-semibold text-text-primary mb-1">
+                  <div className="text-xs sm:text-sm md:text-base font-semibold text-text-primary mb-1">
                     {stat.label}
                   </div>
                   <div className="text-sm text-text-tertiary">
@@ -92,13 +92,13 @@ export const ClerkStats: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 p-10 rounded-2xl bg-gradient-to-br from-[#6C47FF]/10 via-[#38DAFD]/5 to-transparent border border-surface-tertiary/40 backdrop-blur-xl"
+          className="mt-12 md:mt-16 p-6 sm:p-8 md:p-10 rounded-2xl bg-gradient-to-br from-[#6C47FF]/10 via-[#38DAFD]/5 to-transparent border border-surface-tertiary/40 backdrop-blur-xl"
         >
           <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-3 tracking-tight">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-text-primary mb-3 tracking-tight">
               Research-Backed Technology
             </h3>
-            <p className="text-base text-text-secondary mb-8 leading-relaxed">
+            <p className="text-sm sm:text-base text-text-secondary mb-6 md:mb-8 leading-relaxed">
               DeepGuard's models are built on published research with performance validated
               on industry-standard benchmarks. We're committed to advancing the
               field of deepfake detection while maintaining user privacy.

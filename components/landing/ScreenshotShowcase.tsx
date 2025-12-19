@@ -170,7 +170,7 @@ export const ScreenshotShowcase: React.FC = () => {
   const currentScreenshot = filteredScreenshots[currentIndex];
 
   return (
-    <section className="relative py-24 px-6 bg-[#030712] overflow-hidden">
+    <section className="relative py-16 md:py-24 px-4 sm:px-6 bg-[#030712] overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(108,71,255,0.08),transparent_60%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(56,218,253,0.05),transparent_40%)]" />
@@ -185,17 +185,17 @@ export const ScreenshotShowcase: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-sm font-semibold text-[#6C47FF] uppercase tracking-wider mb-3">
+          <h2 className="text-xs sm:text-sm font-semibold text-[#6C47FF] uppercase tracking-wider mb-3">
             App Screenshots
           </h2>
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight leading-tight">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight leading-tight">
             Experience the app
             <br />
             <span className="bg-gradient-to-r from-[#6C47FF] via-[#38DAFD] to-[#FFF963] bg-clip-text text-transparent">
               before you download
             </span>
           </h3>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed px-2">
             Take a tour through DeepGuard&apos;s intuitive interface and powerful features.
             Every screen is designed with privacy and usability in mind.
           </p>
@@ -299,7 +299,7 @@ export const ScreenshotShowcase: React.FC = () => {
                 <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-7 bg-black rounded-full z-20" />
                 
                 {/* Screen */}
-                <div className="relative w-[280px] sm:w-[320px] md:w-[340px] aspect-[9/19.5] rounded-[2.8rem] overflow-hidden bg-black">
+                <div className="relative w-[240px] sm:w-[280px] md:w-[320px] aspect-[9/19.5] rounded-[2rem] sm:rounded-[2.8rem] overflow-hidden bg-black">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentScreenshot?.src}
@@ -388,7 +388,7 @@ export const ScreenshotShowcase: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-center max-w-lg"
+            className="text-center max-w-lg px-2"
           >
             {/* Current Screenshot Info */}
             <AnimatePresence mode="wait">
@@ -404,10 +404,10 @@ export const ScreenshotShowcase: React.FC = () => {
                   <Smartphone className="w-3 h-3" />
                   {currentScreenshot?.category.charAt(0).toUpperCase() + currentScreenshot?.category.slice(1)}
                 </div>
-                <h4 className="text-2xl md:text-3xl font-bold text-text-primary mb-3">
+                <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-text-primary mb-3">
                   {currentScreenshot?.title}
                 </h4>
-                <p className="text-lg text-text-secondary max-w-md mx-auto leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg text-text-secondary max-w-md mx-auto leading-relaxed">
                   {currentScreenshot?.description}
                 </p>
               </motion.div>
@@ -469,14 +469,14 @@ export const ScreenshotShowcase: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-16 overflow-x-auto pb-4"
+          className="mt-12 md:mt-16 overflow-x-auto pb-4 -mx-4 px-4"
         >
-          <div className="flex gap-4 justify-center min-w-max px-4">
+          <div className="flex gap-3 sm:gap-4 justify-start sm:justify-center min-w-max px-2 sm:px-4">
             {filteredScreenshots.map((screenshot, index) => (
               <button
                 key={screenshot.src}
                 onClick={() => setCurrentIndex(index)}
-                className={`relative flex-shrink-0 w-16 h-32 rounded-xl overflow-hidden transition-all duration-300 ${
+                className={`relative flex-shrink-0 w-12 sm:w-14 md:w-16 h-24 sm:h-28 md:h-32 rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 ${
                   index === currentIndex
                     ? 'ring-2 ring-[#6C47FF] ring-offset-2 ring-offset-[#030712] scale-105'
                     : 'opacity-50 hover:opacity-80 hover:scale-102'

@@ -18,13 +18,13 @@ export const ClerkHero: React.FC = () => {
       {/* Grid Pattern Overlay - Clerk Style */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(108,71,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(108,71,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,black,transparent)]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-24 sm:py-32 text-center">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full bg-surface/50 backdrop-blur-xl border border-surface-tertiary/30 text-sm text-text-secondary font-medium"
+          className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 mb-6 sm:mb-8 rounded-full bg-surface/50 backdrop-blur-xl border border-surface-tertiary/30 text-xs sm:text-sm text-text-secondary font-medium"
         >
           <Sparkles className="w-4 h-4 text-[#6C47FF]" />
           <span>100% Private • On-Device AI Detection</span>
@@ -35,7 +35,7 @@ export const ClerkHero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight leading-[1.1]"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 tracking-tight leading-[1.1]"
         >
           <span className="block text-text-primary">Detect Deepfakes</span>
           <span className="block bg-gradient-to-r from-[#6C47FF] via-[#38DAFD] to-[#FFF963] bg-clip-text text-transparent">
@@ -48,7 +48,7 @@ export const ClerkHero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-text-secondary mb-12 max-w-3xl mx-auto leading-relaxed"
+          className="text-base sm:text-lg md:text-xl text-text-secondary mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2"
         >
           Advanced AI-powered deepfake detection that runs completely on your iPhone.
           Analyze images, videos, and live camera feeds. No cloud uploads. No data tracking.
@@ -59,13 +59,13 @@ export const ClerkHero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-16"
         >
           <a 
             href="https://apps.apple.com/app/deepguard"
             target="_blank"
             rel="noopener noreferrer"
-            className="group px-7 py-3 bg-[#6C47FF] hover:bg-[#5a3ad6] text-white font-medium rounded-lg transition-all duration-200 flex items-center gap-2 shadow-[0_8px_24px_rgba(108,71,255,0.25)] hover:shadow-[0_8px_32px_rgba(108,71,255,0.35)]"
+            className="group w-full sm:w-auto px-5 sm:px-7 py-3 bg-[#6C47FF] hover:bg-[#5a3ad6] text-white font-medium rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-[0_8px_24px_rgba(108,71,255,0.25)] hover:shadow-[0_8px_32px_rgba(108,71,255,0.35)] text-sm sm:text-base"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
@@ -78,7 +78,7 @@ export const ClerkHero: React.FC = () => {
             href="https://github.com/GruheshKurra/deepguard-ios"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-7 py-3 bg-surface/50 hover:bg-surface text-text-primary font-medium rounded-lg transition-all duration-200 border border-surface-tertiary/50 hover:border-surface-tertiary backdrop-blur-xl"
+            className="w-full sm:w-auto px-5 sm:px-7 py-3 bg-surface/50 hover:bg-surface text-text-primary font-medium rounded-lg transition-all duration-200 border border-surface-tertiary/50 hover:border-surface-tertiary backdrop-blur-xl text-sm sm:text-base text-center"
           >
             View on GitHub
           </a>
@@ -89,7 +89,7 @@ export const ClerkHero: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-wrap items-center justify-center gap-8 text-sm text-text-tertiary"
+          className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm text-text-tertiary"
         >
           <div className="flex items-center gap-2">
             <Shield className="w-4 h-4 text-[#6C47FF]" />

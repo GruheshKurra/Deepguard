@@ -63,7 +63,7 @@ const features = [
 
 export const ClerkFeatures: React.FC = () => {
   return (
-    <section className="relative py-24 px-6 bg-[#030712] overflow-hidden">
+    <section className="relative py-16 md:py-24 px-4 sm:px-6 bg-[#030712] overflow-hidden">
       {/* Background Elements - Clerk Style */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(108,71,255,0.08),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(56,218,253,0.05),transparent_50%)]" />
@@ -80,14 +80,14 @@ export const ClerkFeatures: React.FC = () => {
             <h2 className="text-sm font-semibold text-[#6C47FF] uppercase tracking-wider mb-3">
               Features
             </h2>
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight leading-tight">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight leading-tight">
               Everything you need to
               <br />
               <span className="bg-gradient-to-r from-[#6C47FF] via-[#38DAFD] to-[#FFF963] bg-clip-text text-transparent">
                 detect AI-generated content
               </span>
             </h3>
-            <p className="text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed px-2">
               Powered by cutting-edge research and optimized for Apple Silicon.
               DeepGuard brings research-grade detection to your pocket.
             </p>
