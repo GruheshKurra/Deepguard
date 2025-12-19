@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "TruthLens - Detect Deepfakes & AI Images",
-  description: "100% Private deepfake and AI image detection on your iPhone. Advanced AI-powered detection that runs completely on your device.",
+  title: "DeepGuard - AI-Powered Deepfake Detection for iOS",
+  description: "100% Private deepfake and AI image detection on your iPhone. Advanced on-device AI detection for images, videos, and live camera. No cloud uploads, works offline.",
 };
 
 export default function RootLayout({

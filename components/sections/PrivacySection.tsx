@@ -52,8 +52,8 @@ export const PrivacySection: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Unlike other detection tools that send your images to the cloud, TruthLens processes
-            everything on your device. No servers. No data collection. No tracking. What happens on
+            Unlike other detection tools that send your images to the cloud, DeepGuard processes
+            everything on your device using Core ML. No servers. No data collection. No tracking. What happens on
             your iPhone, stays on your iPhone.
           </motion.p>
         </div>

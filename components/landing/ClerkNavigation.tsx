@@ -35,7 +35,7 @@ export const ClerkNavigation: React.FC = () => {
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center group-hover:scale-105 transition-all duration-300 shadow-[0_0_16px_rgba(108,71,255,0.3)]">
               <Shield className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-semibold text-text-primary tracking-tight">TruthLens</span>
+            <span className="text-xl font-semibold text-text-primary tracking-tight">DeepGuard</span>
           </a>
 
           {/* Desktop Navigation */}

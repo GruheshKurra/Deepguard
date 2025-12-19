@@ -13,34 +13,44 @@ interface FAQ {
 
 const faqs: FAQ[] = [
   {
-    question: 'How does TruthLens detect deepfakes?',
+    question: 'How does DeepGuard detect deepfakes?',
     answer:
-      'TruthLens uses two specialized AI models that analyze images for subtle artifacts and patterns characteristic of AI generation and manipulation. Our models are trained on millions of real and fake images to achieve over 95% accuracy.',
+      'DeepGuard uses two specialized Core ML models that analyze images for subtle artifacts and patterns characteristic of AI generation and manipulation. Our models are trained on millions of real and fake images to achieve over 90% accuracy.',
   },
   {
-    question: 'Does TruthLens work offline?',
+    question: 'Does DeepGuard work offline?',
     answer:
-      'Yes! All detection happens entirely on your device. TruthLens works perfectly offline with no internet connection required after initial download.',
+      'Yes! All detection happens entirely on your device using Apple\'s Neural Engine. DeepGuard works perfectly offline with no internet connection required after initial download.',
   },
   {
     question: 'What types of AI images can it detect?',
     answer:
-      'TruthLens can detect images from major AI generators including DALL-E, Midjourney, Stable Diffusion, and more. It also detects deepfakes, face swaps, and facial manipulations.',
+      'DeepGuard can detect images from 20+ AI generators including DALL-E, Midjourney, Stable Diffusion, Adobe Firefly, and more through EXIF metadata analysis. It also detects deepfakes, face swaps, and AI-generated content using neural network analysis.',
   },
   {
     question: 'Is my data completely private?',
     answer:
-      'Absolutely. TruthLens processes everything on your device. We never transmit, store, or access your images. There is no server communication, no analytics, and no tracking whatsoever.',
+      'Absolutely. DeepGuard processes everything on your device using Core ML. We never transmit, store, or access your images. There is no server communication, no analytics, and no tracking whatsoever. Your iCloud sync uses YOUR personal iCloud account.',
   },
   {
     question: 'How accurate is the detection?',
     answer:
-      'Our models achieve over 95% accuracy on standard benchmarks. However, no detection system is perfect. We provide confidence scores to help you interpret results.',
+      'Our models achieve over 90% accuracy on benchmark datasets with an inference time under 200ms. We provide confidence scores (0-100%) and color-coded verdicts (green for real, red for AI, orange for uncertain) to help you interpret results.',
   },
   {
-    question: 'Does TruthLens cost money?',
+    question: 'Does DeepGuard cost money?',
     answer:
-      'TruthLens is completely free with no ads, no subscriptions, and no in-app purchases. We believe everyone should have access to reliable deepfake detection.',
+      'DeepGuard is completely free with no ads, no subscriptions, and no in-app purchases. We believe everyone should have access to reliable deepfake detection.',
+  },
+  {
+    question: 'What features does DeepGuard include?',
+    answer:
+      'DeepGuard includes single image analysis, bulk analysis (up to 50 images), video analysis with frame-by-frame breakdown, live camera detection AR-style, EXIF metadata analysis, iCloud sync across devices, and abuse report documentation.',
+  },
+  {
+    question: 'What devices are supported?',
+    answer:
+      'DeepGuard requires an iPhone with an A12 chip or newer running iOS 17.0+. This includes iPhone XS/XR and newer models. The app is optimized for Apple\'s Neural Engine for fast on-device inference.',
   },
 ];
 

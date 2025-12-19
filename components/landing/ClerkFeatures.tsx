@@ -2,44 +2,62 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Zap, Brain, Lock, Smartphone, BarChart3 } from 'lucide-react';
+import { Shield, Zap, Brain, Lock, Smartphone, Camera, Video, FileStack, History, AlertTriangle } from 'lucide-react';
 
 const features = [
   {
     icon: Shield,
     title: 'On-Device Processing',
-    description: 'All analysis happens locally on your iPhone. Your images never leave your device. Complete privacy guaranteed.',
+    description: 'All analysis happens locally on your iPhone using Core ML. Your images never leave your device. Complete privacy guaranteed.',
     gradient: 'from-blue-500/20 to-cyan-500/20',
   },
   {
     icon: Brain,
     title: 'Dual AI Models',
-    description: 'Two specialized neural networks detect deepfakes and AI-generated images with over 95% accuracy.',
+    description: 'Choose between DeepGuard v1 and v2 models. Specialized neural networks detect deepfakes and AI-generated images with over 90% accuracy.',
     gradient: 'from-purple-500/20 to-pink-500/20',
   },
   {
-    icon: Zap,
-    title: 'Instant Results',
-    description: 'Get detection results in under 200ms. Lightning-fast analysis optimized for Apple Silicon.',
-    gradient: 'from-yellow-500/20 to-orange-500/20',
+    icon: Camera,
+    title: 'Live Camera Detection',
+    description: 'Real-time AR-style detection. Point your camera at any image for instant analysis with live color-coded overlays.',
+    gradient: 'from-green-500/20 to-emerald-500/20',
+  },
+  {
+    icon: Video,
+    title: 'Video Analysis',
+    description: 'Frame-by-frame video deepfake detection. Analyzes each frame and provides aggregate results with timeline breakdown.',
+    gradient: 'from-red-500/20 to-orange-500/20',
+  },
+  {
+    icon: FileStack,
+    title: 'Bulk Analysis',
+    description: 'Analyze up to 50 images at once with progress tracking. Auto-saves all results to history with EXIF metadata analysis.',
+    gradient: 'from-yellow-500/20 to-amber-500/20',
   },
   {
     icon: Lock,
-    title: 'Zero Data Collection',
-    description: 'No analytics, no tracking, no telemetry. We don\'t collect any data about you or your images.',
-    gradient: 'from-green-500/20 to-emerald-500/20',
+    title: 'Smart EXIF Detection',
+    description: 'Detects 20+ AI tools including DALL-E, Midjourney, Stable Diffusion, and validates real camera signatures.',
+    gradient: 'from-indigo-500/20 to-violet-500/20',
+  },
+  {
+    icon: History,
+    title: 'iCloud Sync',
+    description: 'Analysis history syncs securely via iCloud across all your Apple devices. Encrypted end-to-end in your personal account.',
+    gradient: 'from-cyan-500/20 to-blue-500/20',
+  },
+  {
+    icon: AlertTriangle,
+    title: 'Abuse Reports',
+    description: 'Document and report malicious deepfake use with categorized reports. Track status from pending to resolved.',
+    gradient: 'from-rose-500/20 to-pink-500/20',
   },
   {
     icon: Smartphone,
     title: 'Works Offline',
-    description: 'Full functionality without internet. Perfect for privacy-conscious users and sensitive situations.',
-    gradient: 'from-indigo-500/20 to-blue-500/20',
-  },
-  {
-    icon: BarChart3,
-    title: 'Detailed Analysis',
-    description: 'Get confidence scores, heatmaps, and forensic details. Understand exactly why content was flagged.',
-    gradient: 'from-red-500/20 to-pink-500/20',
+    description: 'Full functionality without internet. Perfect for privacy-conscious users. No cloud uploads ever required.',
+    gradient: 'from-teal-500/20 to-emerald-500/20',
   },
 ];
 
@@ -66,12 +84,12 @@ export const ClerkFeatures: React.FC = () => {
               Everything you need to
               <br />
               <span className="bg-gradient-to-r from-[#6C47FF] via-[#38DAFD] to-[#FFF963] bg-clip-text text-transparent">
-                detect fake content
+                detect AI-generated content
               </span>
             </h3>
             <p className="text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
-              Powered by cutting-edge research and optimized for mobile devices.
-              TruthLens brings research-grade detection to your pocket.
+              Powered by cutting-edge research and optimized for Apple Silicon.
+              DeepGuard brings research-grade detection to your pocket.
             </p>
           </motion.div>
         </div>
@@ -131,7 +149,7 @@ export const ClerkFeatures: React.FC = () => {
             Ready to protect yourself from AI deception?
           </p>
           <button className="px-7 py-3 bg-[#6C47FF] hover:bg-[#5a3ad6] text-white font-medium rounded-lg transition-all duration-200 shadow-[0_8px_24px_rgba(108,71,255,0.25)] hover:shadow-[0_8px_32px_rgba(108,71,255,0.35)]">
-            Get Started →
+            Download for iOS →
           </button>
         </motion.div>
       </div>

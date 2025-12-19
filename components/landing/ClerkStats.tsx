@@ -5,24 +5,24 @@ import { motion } from 'framer-motion';
 
 const stats = [
   {
-    value: '95%+',
+    value: '90%+',
     label: 'Detection Accuracy',
-    description: 'On benchmark datasets',
+    description: 'Validated on benchmarks',
   },
   {
     value: '<200ms',
     label: 'Analysis Time',
-    description: 'Lightning-fast results',
+    description: 'Using Neural Engine',
   },
   {
     value: '100%',
     label: 'Private',
-    description: 'Zero data collection',
+    description: 'On-device processing',
   },
   {
-    value: '2 Models',
-    label: 'AI Systems',
-    description: 'Specialized detection',
+    value: '20+',
+    label: 'AI Tools Detected',
+    description: 'EXIF metadata analysis',
   },
 ];
 
@@ -49,7 +49,7 @@ export const ClerkStats: React.FC = () => {
           </h2>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
             Research-grade performance meets mobile convenience.
-            Built with cutting-edge AI research.
+            Built with cutting-edge Core ML technology.
           </p>
         </motion.div>
 
@@ -99,7 +99,7 @@ export const ClerkStats: React.FC = () => {
               Research-Backed Technology
             </h3>
             <p className="text-base text-text-secondary mb-8 leading-relaxed">
-              Our models are built on published research with performance validated
+              DeepGuard's models are built on published research with performance validated
               on industry-standard benchmarks. We're committed to advancing the
               field of deepfake detection while maintaining user privacy.
             </p>
@@ -108,19 +108,19 @@ export const ClerkStats: React.FC = () => {
                 <svg className="w-5 h-5 text-[#6C47FF]" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                <span>Peer-reviewed research</span>
+                <span>Core ML Optimized</span>
               </div>
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-[#38DAFD]" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                <span>Open-source models</span>
+                <span>Neural Engine Support</span>
               </div>
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-[#FFF963]" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                <span>Regular updates</span>
+                <span>Regular Updates</span>
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Shield, Twitter, Github, Linkedin } from 'lucide-react';
+import { Shield, Github, Mail, ExternalLink } from 'lucide-react';
 
 export const ClerkFooter: React.FC = () => {
   return (
@@ -14,23 +14,15 @@ export const ClerkFooter: React.FC = () => {
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center shadow-[0_0_16px_rgba(108,71,255,0.3)]">
                 <Shield className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-semibold text-text-primary tracking-tight">TruthLens</span>
+              <span className="text-xl font-semibold text-text-primary tracking-tight">DeepGuard</span>
             </div>
             <p className="text-text-secondary text-sm mb-6 max-w-sm leading-relaxed">
-              Advanced AI-powered deepfake detection that runs completely on your iPhone.
-              100% private, 100% secure.
+              AI-powered deepfake detection that runs completely on your iPhone.
+              100% private, 100% secure. No cloud uploads ever.
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-surface/50 hover:bg-surface border border-surface-tertiary/30 hover:border-surface-tertiary/50 flex items-center justify-center text-text-tertiary hover:text-text-primary transition-all duration-200"
-              >
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a
-                href="https://github.com"
+                href="https://github.com/GruheshKurra/deepguard-ios"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-surface/50 hover:bg-surface border border-surface-tertiary/30 hover:border-surface-tertiary/50 flex items-center justify-center text-text-tertiary hover:text-text-primary transition-all duration-200"
@@ -38,12 +30,18 @@ export const ClerkFooter: React.FC = () => {
                 <Github className="w-4 h-4" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="mailto:gruheshkurra2@gmail.com"
+                className="w-9 h-9 rounded-lg bg-surface/50 hover:bg-surface border border-surface-tertiary/30 hover:border-surface-tertiary/50 flex items-center justify-center text-text-tertiary hover:text-text-primary transition-all duration-200"
+              >
+                <Mail className="w-4 h-4" />
+              </a>
+              <a
+                href="https://karthik.zynthetix.in"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-surface/50 hover:bg-surface border border-surface-tertiary/30 hover:border-surface-tertiary/50 flex items-center justify-center text-text-tertiary hover:text-text-primary transition-all duration-200"
               >
-                <Linkedin className="w-4 h-4" />
+                <ExternalLink className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -63,7 +61,12 @@ export const ClerkFooter: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="/" className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm">
+                <a 
+                  href="https://apps.apple.com/app/deepguard" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm"
+                >
                   Download
                 </a>
               </li>
@@ -77,7 +80,7 @@ export const ClerkFooter: React.FC = () => {
 
           {/* Company Column */}
           <div>
-            <h3 className="text-text-primary font-semibold mb-4 text-sm">Company</h3>
+            <h3 className="text-text-primary font-semibold mb-4 text-sm">Legal</h3>
             <ul className="space-y-3">
               <li>
                 <a href="/about" className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm">
@@ -96,7 +99,7 @@ export const ClerkFooter: React.FC = () => {
               </li>
               <li>
                 <a href="/terms" className="text-text-secondary hover:text-text-primary transition-colors duration-200 text-sm">
-                  Terms of Service
+                  Terms of Use
                 </a>
               </li>
             </ul>
@@ -106,7 +109,7 @@ export const ClerkFooter: React.FC = () => {
         {/* Bottom Section */}
         <div className="pt-8 border-t border-surface-tertiary/20 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-text-tertiary text-sm">
-            © {new Date().getFullYear()} TruthLens. All rights reserved.
+            © {new Date().getFullYear()} DeepGuard. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-text-tertiary">
             <span className="flex items-center gap-2">
@@ -114,7 +117,7 @@ export const ClerkFooter: React.FC = () => {
               100% Private
             </span>
             <span>•</span>
-            <span>Made with ♥ for privacy</span>
+            <span>Made with ♥ by <a href="https://karthik.zynthetix.in" target="_blank" rel="noopener noreferrer" className="text-[#6C47FF] hover:underline">Karthik</a></span>
           </div>
         </div>
       </div>

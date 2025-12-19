@@ -1,6 +1,6 @@
 import { ClerkNavigation, ClerkFooter } from '@/components/landing';
 import { Container } from '@/components/ui';
-import { FileText, Scale } from 'lucide-react';
+import { FileText, Scale, AlertTriangle } from 'lucide-react';
 
 export default function TermsPage() {
   return (
@@ -15,14 +15,14 @@ export default function TermsPage() {
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
                 Terms of{' '}
                 <span className="bg-gradient-to-r from-[#6C47FF] via-[#38DAFD] to-[#FFF963] bg-clip-text text-transparent">
-                  Service
+                  Use
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                Please read these terms carefully before using Deepguard.
+                Please read these terms carefully before using DeepGuard.
               </p>
               <p className="text-sm text-slate-400 mt-4">
-                Last updated: November 15, 2025
+                Last updated: December 19, 2024
               </p>
             </div>
           </Container>
@@ -42,12 +42,8 @@ export default function TermsPage() {
                 </h2>
                 <div className="pl-11 space-y-4 text-slate-300 leading-relaxed">
                   <p>
-                    By downloading, installing, or using Deepguard, you agree to be bound by these Terms of Service.
-                    If you do not agree to these terms, do not use the software.
-                  </p>
-                  <p>
-                    These terms apply to all users of Deepguard, whether you're using it for personal,
-                    educational, or commercial purposes.
+                    By downloading, installing, or using DeepGuard ("the App"), you agree to be bound by these
+                    Terms of Use. If you do not agree to these terms, please do not use the App.
                   </p>
                 </div>
               </div>
@@ -58,29 +54,23 @@ export default function TermsPage() {
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center text-sm font-bold">
                     2
                   </div>
-                  License Grant
+                  Description of Service
                 </h2>
                 <div className="pl-11 space-y-4 text-slate-300 leading-relaxed">
                   <p>
-                    Deepguard is open source software licensed under the MIT License. This means you have the right to:
+                    DeepGuard is an AI-powered iOS application that analyzes images and videos to detect potential
+                    AI-generated or manipulated content (commonly known as "deepfakes"). The App uses machine learning
+                    models that run entirely on your device using Apple's Core ML framework.
                   </p>
-                  <ul className="space-y-2">
-                    {[
-                      'Use the software for any purpose, including commercial use',
-                      'Modify the source code to suit your needs',
-                      'Distribute copies of the software',
-                      'Distribute modified versions of the software',
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <span className="text-[#6C47FF] mt-1">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <p>
-                    The full license text is available in the source code repository and must be included
-                    in any redistribution.
-                  </p>
+                  <div className="p-4 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
+                    <p className="flex items-center gap-2 font-semibold text-yellow-400">
+                      <AlertTriangle className="w-5 h-5" /> Important Disclaimer
+                    </p>
+                    <p className="mt-2">
+                      DeepGuard provides probabilistic assessments based on machine learning analysis. Results are
+                      not guaranteed to be 100% accurate and should not be used as the sole basis for important decisions.
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -90,19 +80,15 @@ export default function TermsPage() {
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center text-sm font-bold">
                     3
                   </div>
-                  Acceptable Use
+                  Use License
                 </h2>
                 <div className="pl-11 space-y-4 text-slate-300 leading-relaxed">
-                  <p>
-                    You may use Deepguard for lawful purposes only. You agree not to:
-                  </p>
+                  <p>We grant you a limited, non-exclusive, non-transferable license to:</p>
                   <ul className="space-y-2">
                     {[
-                      'Use the software to harass, threaten, or harm others',
-                      'Attempt to circumvent or disable security features',
-                      'Use the software in violation of applicable laws or regulations',
-                      'Misrepresent the capabilities or accuracy of the software',
-                      'Remove or alter any copyright, trademark, or proprietary notices',
+                      'Download and install the App on your personal Apple devices',
+                      'Use the App for personal, non-commercial purposes',
+                      'Access features in accordance with these Terms',
                     ].map((item, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <span className="text-[#6C47FF] mt-1">•</span>
@@ -119,33 +105,25 @@ export default function TermsPage() {
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center text-sm font-bold">
                     4
                   </div>
-                  Disclaimer of Warranties
+                  Restrictions
                 </h2>
                 <div className="pl-11 space-y-4 text-slate-300 leading-relaxed">
-                  <p className="font-semibold text-white">
-                    DEEPGUARD IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
-                  </p>
-                  <p>
-                    While we strive for high accuracy, no deepfake detection system is perfect. We make no warranties,
-                    express or implied, including but not limited to:
-                  </p>
+                  <p>You agree NOT to:</p>
                   <ul className="space-y-2">
                     {[
-                      'The accuracy or reliability of detection results',
-                      'The software being error-free or uninterrupted',
-                      'The software meeting your specific requirements',
-                      'The results being admissible as evidence in legal proceedings',
+                      'Reverse engineer, decompile, or disassemble the App',
+                      'Modify, adapt, or create derivative works based on the App',
+                      'Use the App for any illegal or unauthorized purpose',
+                      'Use the App to harass, defame, or violate the rights of others',
+                      'Attempt to circumvent any security features of the App',
+                      'Use the App in any way that could damage or overburden our services',
                     ].map((item, idx) => (
                       <li key={idx} className="flex items-start gap-3">
-                        <span className="text-[#6C47FF] mt-1">•</span>
+                        <span className="text-red-400 mt-1">✗</span>
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
-                  <p>
-                    You should use Deepguard as one tool in your verification process, not as the sole
-                    determinant of authenticity.
-                  </p>
                 </div>
               </div>
 
@@ -155,23 +133,27 @@ export default function TermsPage() {
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center text-sm font-bold">
                     5
                   </div>
-                  Limitation of Liability
+                  AI Analysis Limitations
                 </h2>
                 <div className="pl-11 space-y-4 text-slate-300 leading-relaxed">
-                  <p className="font-semibold text-white">
-                    TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE DEEPGUARD DEVELOPERS AND CONTRIBUTORS
-                    SHALL NOT BE LIABLE FOR ANY DAMAGES ARISING FROM YOUR USE OF THE SOFTWARE.
-                  </p>
-                  <p>
-                    This includes, but is not limited to:
-                  </p>
+                  <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20">
+                    <p className="flex items-center gap-2 font-semibold text-red-400">
+                      <AlertTriangle className="w-5 h-5" /> No Guarantee of Accuracy
+                    </p>
+                    <p className="mt-2">
+                      The AI detection capabilities of DeepGuard are based on machine learning models that may produce
+                      false positives or false negatives. Do not rely solely on DeepGuard's analysis for legal,
+                      professional, or safety-critical decisions.
+                    </p>
+                  </div>
+                  <p>You acknowledge that:</p>
                   <ul className="space-y-2">
                     {[
-                      'Direct, indirect, incidental, or consequential damages',
-                      'Loss of profits, data, or business opportunities',
-                      'Damages from false positives or false negatives',
-                      'Damages from reliance on detection results',
-                      'Any other damages, even if advised of the possibility',
+                      'AI detection technology is evolving and may not detect all types of manipulated content',
+                      'Results should be considered as one data point among many when evaluating content authenticity',
+                      'We make no warranties regarding the accuracy, reliability, or completeness of analysis results',
+                      'Heavy compression may reduce accuracy',
+                      'Screenshots of AI images (with metadata stripped) may be harder to detect',
                     ].map((item, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <span className="text-[#6C47FF] mt-1">•</span>
@@ -188,19 +170,16 @@ export default function TermsPage() {
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center text-sm font-bold">
                     6
                   </div>
-                  Indemnification
+                  User Responsibilities
                 </h2>
                 <div className="pl-11 space-y-4 text-slate-300 leading-relaxed">
-                  <p>
-                    You agree to indemnify and hold harmless the Deepguard developers, contributors, and
-                    affiliated parties from any claims, damages, or expenses (including legal fees) arising from:
-                  </p>
+                  <p>You are responsible for:</p>
                   <ul className="space-y-2">
                     {[
-                      'Your use of the software',
-                      'Your violation of these terms',
-                      'Your violation of any rights of another party',
-                      'Any modifications you make to the software',
+                      'Ensuring you have the right to analyze any content you submit to the App',
+                      'Using the App in compliance with all applicable laws and regulations',
+                      'Maintaining the security of your Apple ID and device',
+                      'Any actions taken based on the App\'s analysis results',
                     ].map((item, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <span className="text-[#6C47FF] mt-1">•</span>
@@ -217,28 +196,13 @@ export default function TermsPage() {
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center text-sm font-bold">
                     7
                   </div>
-                  Updates and Modifications
+                  Intellectual Property
                 </h2>
                 <div className="pl-11 space-y-4 text-slate-300 leading-relaxed">
                   <p>
-                    We may release updates to Deepguard from time to time. Updates may:
-                  </p>
-                  <ul className="space-y-2">
-                    {[
-                      'Add new features or improve existing ones',
-                      'Fix bugs or security vulnerabilities',
-                      'Improve detection accuracy',
-                      'Change the user interface or functionality',
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <span className="text-[#6C47FF] mt-1">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <p>
-                    While updates are optional, we strongly recommend keeping Deepguard up to date
-                    for the best security and accuracy.
+                    DeepGuard, including its design, features, and content, is protected by copyright, trademark,
+                    and other intellectual property laws. You may not use our trademarks, logos, or branding without
+                    prior written permission.
                   </p>
                 </div>
               </div>
@@ -249,17 +213,15 @@ export default function TermsPage() {
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center text-sm font-bold">
                     8
                   </div>
-                  Third-Party Content
+                  Privacy
                 </h2>
                 <div className="pl-11 space-y-4 text-slate-300 leading-relaxed">
                   <p>
-                    Deepguard may use third-party libraries and components, each subject to their own licenses.
-                    These licenses are included in the software distribution and source code.
-                  </p>
-                  <p>
-                    We are not responsible for third-party content you choose to scan with Deepguard.
-                    You are solely responsible for ensuring you have the right to analyze any content
-                    you process.
+                    Your use of DeepGuard is also governed by our{' '}
+                    <a href="/privacy" className="text-[#6C47FF] hover:underline">
+                      Privacy Policy
+                    </a>
+                    , which describes how we handle your information.
                   </p>
                 </div>
               </div>
@@ -270,16 +232,13 @@ export default function TermsPage() {
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center text-sm font-bold">
                     9
                   </div>
-                  Termination
+                  Disclaimer of Warranties
                 </h2>
                 <div className="pl-11 space-y-4 text-slate-300 leading-relaxed">
-                  <p>
-                    You may stop using Deepguard at any time by uninstalling the software. These terms
-                    remain in effect for your use up until termination.
-                  </p>
-                  <p>
-                    Sections that by their nature should survive termination (including disclaimers,
-                    limitations of liability, and indemnification) will continue to apply.
+                  <p className="font-semibold text-white uppercase">
+                    THE APP IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. WE DISCLAIM
+                    ALL WARRANTIES INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS
+                    FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
                   </p>
                 </div>
               </div>
@@ -290,13 +249,13 @@ export default function TermsPage() {
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center text-sm font-bold">
                     10
                   </div>
-                  Governing Law
+                  Limitation of Liability
                 </h2>
                 <div className="pl-11 space-y-4 text-slate-300 leading-relaxed">
-                  <p>
-                    These terms shall be governed by and construed in accordance with the laws of the
-                    jurisdiction in which the Deepguard project is primarily developed, without regard
-                    to conflict of law principles.
+                  <p className="font-semibold text-white uppercase">
+                    TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
+                    SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF THE APP, EVEN IF WE HAVE
+                    BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
                   </p>
                 </div>
               </div>
@@ -307,13 +266,12 @@ export default function TermsPage() {
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center text-sm font-bold">
                     11
                   </div>
-                  Changes to Terms
+                  Indemnification
                 </h2>
                 <div className="pl-11 space-y-4 text-slate-300 leading-relaxed">
                   <p>
-                    We reserve the right to modify these terms at any time. Changes will be posted on this page
-                    with an updated revision date. Your continued use of Deepguard after changes constitutes
-                    acceptance of the modified terms.
+                    You agree to indemnify and hold harmless DeepGuard and its creators from any claims, damages,
+                    losses, or expenses arising from your use of the App or violation of these Terms.
                   </p>
                 </div>
               </div>
@@ -324,13 +282,12 @@ export default function TermsPage() {
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center text-sm font-bold">
                     12
                   </div>
-                  Severability
+                  Termination
                 </h2>
                 <div className="pl-11 space-y-4 text-slate-300 leading-relaxed">
                   <p>
-                    If any provision of these terms is found to be unenforceable or invalid, that provision
-                    will be limited or eliminated to the minimum extent necessary so that the remaining terms
-                    remain in full force and effect.
+                    We may terminate or suspend your access to the App at any time, without prior notice, for any
+                    reason, including breach of these Terms.
                   </p>
                 </div>
               </div>
@@ -341,14 +298,45 @@ export default function TermsPage() {
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center text-sm font-bold">
                     13
                   </div>
-                  Contact Information
+                  Governing Law
                 </h2>
                 <div className="pl-11 space-y-4 text-slate-300 leading-relaxed">
                   <p>
-                    If you have questions about these Terms of Service, please contact us:
+                    These Terms shall be governed by and construed in accordance with the laws of India, without
+                    regard to its conflict of law provisions.
                   </p>
+                </div>
+              </div>
+
+              {/* Section 14 */}
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center text-sm font-bold">
+                    14
+                  </div>
+                  Changes to Terms
+                </h2>
+                <div className="pl-11 space-y-4 text-slate-300 leading-relaxed">
+                  <p>
+                    We reserve the right to modify these Terms at any time. We will notify you of significant changes
+                    by updating the "Last updated" date. Your continued use of the App after changes constitutes
+                    acceptance of the new Terms.
+                  </p>
+                </div>
+              </div>
+
+              {/* Section 15 */}
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6C47FF] to-[#38DAFD] flex items-center justify-center text-sm font-bold">
+                    15
+                  </div>
+                  Contact Us
+                </h2>
+                <div className="pl-11 space-y-4 text-slate-300 leading-relaxed">
+                  <p>If you have questions about these Terms, please contact us at:</p>
                   <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                    <p className="font-mono text-sm">legal@deepguard.org</p>
+                    <p className="font-mono text-sm">📧 gruheshkurra2@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -356,8 +344,8 @@ export default function TermsPage() {
               {/* Acknowledgment */}
               <div className="p-6 rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10">
                 <p className="text-slate-300 text-center">
-                  By using Deepguard, you acknowledge that you have read, understood, and agree to be
-                  bound by these Terms of Service.
+                  By using DeepGuard, you acknowledge that you have read, understood, and agree to be bound by
+                  these Terms of Use.
                 </p>
               </div>
             </div>
@@ -373,11 +361,16 @@ export default function TermsPage() {
                 Ready to Get Started?
               </h2>
               <p className="text-lg text-slate-300 mb-8">
-                Download Deepguard and start protecting yourself from deepfakes.
+                Download DeepGuard and start protecting yourself from deepfakes.
               </p>
-              <button className="px-8 py-4 rounded-full bg-white text-black font-semibold hover:bg-slate-100 transition-all duration-300 hover:scale-105 text-lg">
-                Download Deepguard
-              </button>
+              <a 
+                href="https://apps.apple.com/app/deepguard"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-4 rounded-full bg-white text-black font-semibold hover:bg-slate-100 transition-all duration-300 hover:scale-105 text-lg"
+              >
+                Download DeepGuard
+              </a>
             </div>
           </Container>
         </section>

@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
             lineHeight: 1.5,
           }}
         >
-          &copy; 2025 TruthLens. All rights reserved.
+          &copy; 2025 DeepGuard. All rights reserved.
         </p>
         <p
           className="text-text-secondary mb-8"

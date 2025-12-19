@@ -14,9 +14,9 @@ export const Navigation: React.FC = () => {
           <a
             href="#"
             className="text-2xl font-semibold text-text-primary smooth-scale"
-            aria-label="TruthLens Home"
+            aria-label="DeepGuard Home"
           >
-            TruthLens
+            DeepGuard
           </a>
           <ul className="hidden md:flex gap-10 text-sm font-medium" role="navigation">
             <li>
