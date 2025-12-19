@@ -5,6 +5,7 @@ import {
   ClerkStats,
   ClerkCTA,
   ClerkFooter,
+  ScreenshotShowcase,
 } from '@/components/landing';
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <ClerkNavigation />
       <main id="main">
         <ClerkHero />
+        <ScreenshotShowcase />
         <ClerkFeatures />
         <ClerkStats />
         <ClerkCTA />

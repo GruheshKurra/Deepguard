@@ -4,3 +4,4 @@ export { ClerkStats } from './ClerkStats';
 export { ClerkCTA } from './ClerkCTA';
 export { ClerkNavigation } from './ClerkNavigation';
 export { ClerkFooter } from './ClerkFooter';
+export { ScreenshotShowcase } from './ScreenshotShowcase';

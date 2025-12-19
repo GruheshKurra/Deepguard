@@ -109,38 +109,7 @@ export const ClerkHero: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* iPhone Mockup */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-20 relative"
-        >
-          <div className="relative mx-auto max-w-sm">
-            {/* Glow Effect - Clerk Style */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#6C47FF]/15 via-[#38DAFD]/10 to-transparent blur-3xl" />
 
-            {/* Phone Frame */}
-            <div className="relative bg-gradient-to-b from-surface to-surface-secondary rounded-[3rem] p-3 shadow-[0_24px_48px_rgba(0,0,0,0.3)] border border-surface-tertiary/30">
-              <div className="bg-[#030712] rounded-[2.5rem] overflow-hidden aspect-[9/19.5]">
-                {/* Screen Content */}
-                <div className="h-full bg-gradient-to-b from-[#030712] to-[#0f172a] p-8 flex flex-col items-center justify-center">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#6C47FF]/20 to-[#38DAFD]/20 flex items-center justify-center mb-4">
-                    <Shield className="w-10 h-10 text-[#6C47FF]" />
-                  </div>
-                  <div className="text-center space-y-2">
-                    <div className="text-text-primary font-semibold">DeepGuard</div>
-                    <div className="text-xs text-text-secondary">AI-Powered Protection</div>
-                    <div className="flex gap-1 justify-center mt-4">
-                      <div className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-                      <div className="text-xs text-[#10B981]">Ready to Scan</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
